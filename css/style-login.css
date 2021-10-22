@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Mulish", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 30px;
+}
+
+.container {
+  position: relative;
+  max-width: 850px;
+  border-radius: 25px;
+  width: 100%;
+  background: rgb(255, 255, 255);
+  padding: 40px 30px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.container .cover {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 50%;
+  z-index: 98;
+}
+
+.container .cover::before {
+  content: "";
+  border-radius: 0 20px 20px 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #0d6efd;
+  opacity: 0.5;
+  z-index: 100;
+}
+
+.container .cover img {
+  height: 100%;
+  border-radius: 0 25px 25px 0;
+  position: absolute;
+  width: 100%;
+  object-fit: cover;
+  z-index: 12;
+}
+
+.container .cover .text {
+  position: absolute;
+  z-index: 111;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cover .text .text-1,
+.cover .text .text-2 {
+  font-size: 26px;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+}
+
+.cover .text .text-2 {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.container .container form {
+  height: 100%;
+  width: 100%;
+  background: white;
+}
+
+.container .form-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-content .login-form {
+  width: calc(100% / 2 - 25px);
+}
+
+form .form-content .title {
+  position: relative;
+  font-size: 24px;
+  font-weight: 500;
+  color: #333;
+}
+
+form .form-content .input-boxes {
+  margin-top: 30px;
+}
+
+form .form-content .input-box {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  margin: 10 0px;
+  position: relative;
+}
+
+.form-content .input-box input,
+button {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 0 30px;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.form-content .input-box input:focus,
+button:focus,
+.form-content .input-box input:valid,
+button:valid {
+  border-color: #0d6efd;
+}
+
+.form-content .input-box i {
+  position: absolute;
+  color: #0d6efd;
+  font-size: 17px;
+}
+
+form .form-content .text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+form .form-content .button {
+  color: white;
+  margin-top: 40px;
+}
+
+form .form-content .button button {
+  color: white;
+  background: #0d6efd;
+  border-radius: 6px;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+form .form-content .button button:hover {
+  background-color: #1150af;
+}
+
+form .form-content a {
+  text-decoration: none;
+  color: #0d6efd;
+  cursor: pointer;
+}
+
+form .form-content a:hover {
+  text-decoration: underline;
+}
+
+form .form-content .login-text {
+  text-align: center;
+  margin-top: 20px;
+}
+
+@media (max-width: 730px) {
+  .container .cover {
+    display: none;
+  }
+  .form-content .login-form {
+    width: 100%;
+  }
+}
