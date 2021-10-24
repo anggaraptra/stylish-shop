@@ -1,5 +1,5 @@
 <?php
-require 'functions.php';
+require 'functions/functions.php';
 $produk = query("SELECT * FROM produk");
 
 // Tombol cari ditekan

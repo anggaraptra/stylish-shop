@@ -1,5 +1,5 @@
 <?php
-require 'functions.php';
+require 'functions/functions.php';
 
 $produk = query("SELECT * FROM produk");
 
@@ -122,7 +122,7 @@ if ( isset($_POST["submit-tambah"]) ) {
     <!-- Halaman Produk -->
     <section id="produk">
       <div class="produk container-fluid row text-center mx-auto p-5 mb-3">
-        <h2>PRODUK USER</h2>
+        <h2>PRODUK TERBARU</h2>
         <?php foreach ( $produk as $row ) : ?>
         <div class="container-fluid card mb-4" style="width: 16rem">
           <img width="160" height="160" src="img-produk/<?= $row["gambar"]; ?>" class="container-fluid card-img-top" alt=""/>
@@ -132,7 +132,7 @@ if ( isset($_POST["submit-tambah"]) ) {
             <a href="" class="btn btn-primary" data-bs-target="#detail-produk" data-bs-toggle="modal">Detail</a>
             <a href="" class="btn btn-warning">Keranjang</a>
             <a href="ubah.php?id=<?= $row["id"]; ?>" class="btn btn-secondary mt-1">Ubah</a>
-            <a href="hapus.php?id=<?= $row["id"]; ?>" onclick="return confirm('Yakin Ingin Hapus Produk?');" class="btn btn-danger mt-1">Hapus</a>
+            <a href="functions/hapus.php?id=<?= $row["id"]; ?>" onclick="return confirm('Yakin Ingin Hapus Produk?');" class="btn btn-danger mt-1">Hapus</a>
           </div>
         </div>
         <?php endforeach; ?> 
