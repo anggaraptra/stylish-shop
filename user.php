@@ -8,13 +8,13 @@ if ( isset($_POST["submit-tambah"]) ) {
   // cek apakah data berhasil di tambahkan
   if ( tambah($_POST) > 0 ) {
     echo "<script>
-      alert('Data berhasil di tambah!');
-      document.location.href = 'index.php';
+      alert('Data Berhasil Di Tambah!');
+      document.location.href = 'user.php';
     </script>";
   } else {
     echo "<script>
-      alert('Data gagal di tambah!');
-      document.location.href = 'index.php';
+      alert('Data Gagal Di Tambah!');
+      document.location.href = 'user.php';
     </script>";
   }
 }
@@ -64,6 +64,7 @@ if ( isset($_POST["submit-tambah"]) ) {
     <!-- Halaman User -->
     <section class="container-fluid p-4" id="tambah">
     <div class="row">
+      <div class="col-md-2"></div>
 
       <!-- User -->
       <div class="col-md-4">
@@ -77,107 +78,68 @@ if ( isset($_POST["submit-tambah"]) ) {
 
       <!-- Tambah Produk -->
       <div class="col-md-4">
-        <h2 class="mt-5 fw-bold head-tambah">TAMBAH</h2>
-        <form action="" method="post">
+        <h2 class="mt-5 fw-bold head-tambah text-center">TAMBAH PRODUK</h2>
+        <form action="" method="post" enctype="multipart/form-data">
           <table>
               <tr>
-                <td><label for="nama-produk">Nama</label></td>
+                <td><label for="nama-produk" class="form-label">Nama</label></td>
                 <td></td>
-                <td><input type="text" name="nama" id="nama-produk" required></td>
+                <td><input type="text" name="nama" id="nama-produk" class="form-control" required></td>
               </tr>
               <tr>
-                <td><label for="stok-produk">Stok</label></td>
+                <td><label for="stok-produk" class="form-label">Stok</label></td>
                 <td></td>
-                <td><input type="number" name="stok" id="stok-produk" required></td>
+                <td><input type="number" name="stok" id="stok-produk" class="form-control" required></td>
               </tr>
               <tr>
-                <td><label for="harga-produk">Harga</label></td>
+                <td><label for="harga-produk" class="form-label">Harga</label></td>
                 <td></td>
-                <td><input type="number" name="harga" placeholder="RP." id="harga-produk" required></td>
+                <td><input type="number" name="harga" placeholder="RP." id="harga-produk" class="form-control" required></td>
               </tr>
               <tr>
-                <td><label for="deskripsi-produk">Deskripsi</label></td>
+                <td><label for="deskripsi-produk" class="form-label">Deskripsi</label></td>
                 <td></td>
-                <td><textarea placeholder="Deskripsi produk" rows="2" id="deskripsi-produk" name="deskripsi" required></textarea></td>
+                <td><textarea placeholder="Deskripsi produk" rows="2" id="deskripsi-produk" class="form-control" name="deskripsi" required></textarea></td>
               </tr>
               <tr>
-                <td><label for="gambar-produk">Gambar</label></td>
+                <td><label for="gambar-produk" class="form-label">Gambar</label></td>
                 <td></td>
-                <td><input type="file" name="gambar" id="gambar-produk"></td>
+                <td><input type="file" name="gambar" id="gambar-produk" class="form-control"></td>
               </tr>
               <tr>
                 <td></td>
                 <td></td>
-                <td><button type="submit" name="submit-tambah" class="btn btn-primary">Tambah</button></td>
+                <td><button type="submit" name="submit-tambah" class="btn btn-primary mt-1">Tambah</button></td>
               </tr>
           </table>
         </form>
       </div>
-
-      <!-- Ubah Produk -->
-      <div class="col-md-4">
-      <h2 class="mt-5 fw-bold head-ubah">UBAH</h2>
-        <form action="" method="">
-          <table>
-              <tr>
-                <td><label for="nama">Nama</label></td>
-                <td></td>
-                <td><input type="text" name="nama" id="nama"  required></td>
-              </tr>
-              <tr>
-                <td><label for="stok">Stok</label></td>
-                <td></td>
-                <td><input type="number" name="stok" id="stok" required></td>
-              </tr>
-              <tr>
-                <td><label for="harga">Harga</label></td>
-                <td></td>
-                <td><input type="number" name="harga" placeholder="RP." id="harga" required></td>
-              </tr>
-              <tr>
-                <td><label for="deskripsi">Deskripsi</label></td>
-                <td></td>
-                <td><textarea placeholder="Deskripsi produk" rows="2" id="deskripsi" name="deskripsi" required></textarea></td>
-              </tr>
-              <tr>
-                <td><label for="gambar">Gambar</label></td>
-                <td></td>
-                <td><input type="file" name="gambar" id="gambar"></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td><button type="submit" name="submit-ubah" class="btn btn-primary">Ubah</button></td>
-              </tr>
-          </table>
-        </form>
-      </div>
+      <div class="col-md-2"></div>
     </div>
     </section>
     <!-- Akhir Halaman User -->
 
-    <!-- Produk Terbaru -->
+    <!-- Halaman Produk -->
     <section id="produk">
-      <div class="produk container-fluid row text-center mx-auto p-4 mb-3">
+      <div class="produk container-fluid row text-center mx-auto p-5 mb-3">
         <h2>PRODUK USER</h2>
         <?php foreach ( $produk as $row ) : ?>
         <div class="container-fluid card mb-4" style="width: 16rem">
-          <img src="img-produk/<?= $row["gambar"]; ?>" class="container-fluid card-img-top" alt=""/>
+          <img width="160" height="160" src="img-produk/<?= $row["gambar"]; ?>" class="container-fluid card-img-top" alt=""/>
           <div class="card-body">
             <h5 class="card-title"><strong><?= $row["nama"]; ?></strong></h5>
             <p class="card-text"><?= $row["deskripsi"]; ?></p>
             <a href="" class="btn btn-primary" data-bs-target="#detail-produk" data-bs-toggle="modal">Detail</a>
             <a href="" class="btn btn-warning">Keranjang</a>
-            <a href="#home" class="btn btn-secondary mt-1">Edit</a>
-            <a href="hapus.php?id=<?= $row["id"]; ?>" onclick="return confirm('Yakin ingin di hapus?');" class="btn btn-danger mt-1">Hapus</a>
+            <a href="ubah.php?id=<?= $row["id"]; ?>" class="btn btn-secondary mt-1">Ubah</a>
+            <a href="hapus.php?id=<?= $row["id"]; ?>" onclick="return confirm('Yakin Ingin Hapus Produk?');" class="btn btn-danger mt-1">Hapus</a>
           </div>
         </div>
         <?php endforeach; ?> 
       </div>
     </section>
-  <!-- Akhir Halaman Produk -->
 
-  <!-- Detail Produk -->
+    <!-- Detail Produk -->
     <div class="modal fade" id="detail-produk" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -218,7 +180,7 @@ if ( isset($_POST["submit-tambah"]) ) {
         </div>
       </div>
     </div>
-    <!-- Akhir Produk Terbaru -->
+    <!-- Akhir Halaman Produk -->
 
     <!-- Footer -->
       <footer class="container-fluid bg-primary text-white p-3">

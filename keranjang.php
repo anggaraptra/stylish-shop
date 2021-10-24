@@ -46,7 +46,7 @@
     <section id="produk">
     <div class="produk container-fluid row text-center p-5 mx-auto mb-3 mt-5">
         <div class="container-fluid card mr-2 ml-2 mb-3" style="width: 16rem">
-          <img src="img/poto.png" class="container-fluid card-img-top" alt=""/>
+          <img width="160" height="160" src="img/poto.png" class="container-fluid card-img-top" alt=""/>
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

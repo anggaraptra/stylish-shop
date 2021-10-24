@@ -1,6 +1,11 @@
 <?php
 require 'functions.php';
 $produk = query("SELECT * FROM produk");
+
+// Tombol cari ditekan
+if ( isset($_POST["submit-cari"]) ) {
+  $produk = cari($_POST["keyword"]);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,9 +43,9 @@ $produk = query("SELECT * FROM produk");
               <a class="nav-link" aria-current="page" href="" data-bs-target="#kontak" data-bs-toggle="modal">KONTAK</a>
             </li>
           </ul>
-          <form class="cari d-flex">
-            <input class="form-control me-1" type="search" placeholder="Cari produk..." aria-label="Search" />
-            <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
+          <form class="cari d-flex" action="" method="post">
+            <input class="form-control me-1" type="search" name="keyword" placeholder="Cari produk..." aria-label="Search" size="30" autofocus/>
+            <button class="btn btn-outline-light" type="submit" name="submit-cari"><i class="bi bi-search"></i></button>
           </form>
           <div class="tombol">
             <ul class="navbar-nav mt-1">
@@ -94,7 +99,7 @@ $produk = query("SELECT * FROM produk");
       <div class="produk container-fluid row text-center mx-auto p-5 mb-3">
       <?php foreach ( $produk as $row ) : ?>
         <div class="container-fluid card mb-4" style="width: 16rem">
-        <img src="img-produk/<?= $row["gambar"]; ?>" class="container-fluid card-img-top" />
+        <img width="160" height="160" src="img-produk/<?= $row["gambar"]; ?>" class="container-fluid card-img-top" />
           <div class="card-body">
             <h5 class="card-title"><strong><?= $row["nama"]; ?></strong></h5>
             <p class="card-text"><?= $row["deskripsi"]; ?></p>
@@ -106,9 +111,9 @@ $produk = query("SELECT * FROM produk");
       <?php endforeach; ?>
       </div>
     </section>
-  <!-- Akhir Halaman Produk -->
 
   <!-- Detail Produk -->
+  <!-- Detail produk buat di halaman baru -->
   <div class="modal fade" id="detail-produk" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -148,7 +153,7 @@ $produk = query("SELECT * FROM produk");
           </div>
         </div>
       </div>
-  <!-- Akhir Detail Produk -->
+  <!-- Akhir Halaman Produk -->
 
   <!-- Alert Kontak -->
   <div class="modal fade" id="kontak" tabindex="-1"   aria-labelledby="exampleModalLabel" aria-hidden="true">
