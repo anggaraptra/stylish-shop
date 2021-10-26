@@ -46,7 +46,7 @@ if ( isset($_POST["submit-tambah"]) ) {
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active me-5" aria-current="page" href="#home">HALAMAN USER</a>
+              <a class="nav-link active me-5" aria-current="page" href="#home">USER</a>
             </li>
           </ul>
           <div class="tombol">
@@ -69,8 +69,8 @@ if ( isset($_POST["submit-tambah"]) ) {
       <!-- User -->
       <div class="col-md-4">
         <div class="content mt-5">
-          <h2 class="fw-bold head-user">USER</h2>
-          <i class="bi bi-person-circle"> .....</i>
+          <h2 class="fw-bold head-user">USERNAME</h2>
+          <h5 class="bi bi-person-circle mt-3"></h5>
         </div>
         <button class="btn btn-primary mt-3 keluar"><a href="login.php">Logout</a></button>
         <button class="btn btn-primary mt-3 kembali"><a href="index.php">Halaman Utama</a></button>
@@ -129,9 +129,10 @@ if ( isset($_POST["submit-tambah"]) ) {
           <div class="card-body">
             <h5 class="card-title"><strong><?= $row["nama"]; ?></strong></h5>
             <p class="card-text"><?= $row["deskripsi"]; ?></p>
-            <a href="" class="btn btn-primary" data-bs-target="#detail-produk" data-bs-toggle="modal">Detail</a>
+            <a href="detail.php?id=<?= $row["id"]; ?>" class="btn btn-primary">Detail</a>
             <a href="" class="btn btn-warning">Keranjang</a>
-            <a href="ubah.php?id=<?= $row["id"]; ?>" class="btn btn-secondary mt-1">Ubah</a>
+            <!-- Edit isi class mt-1 -->
+            <a href="ubah.php?id=<?= $row["id"]; ?>" class="btn btn-secondary mt-1">Edit</a>
             <a href="functions/hapus.php?id=<?= $row["id"]; ?>" onclick="return confirm('Yakin Ingin Hapus Produk?');" class="btn btn-danger mt-1">Hapus</a>
           </div>
         </div>
@@ -140,7 +141,7 @@ if ( isset($_POST["submit-tambah"]) ) {
     </section>
 
     <!-- Detail Produk -->
-    <div class="modal fade" id="detail-produk" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="detail-produk" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
@@ -179,7 +180,7 @@ if ( isset($_POST["submit-tambah"]) ) {
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- Akhir Halaman Produk -->
 
     <!-- Footer -->

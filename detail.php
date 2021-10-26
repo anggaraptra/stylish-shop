@@ -1,4 +1,10 @@
-<?php ?>
+<?php 
+require 'functions/functions.php';
+
+$id = $_GET['id'];
+
+$produk = query("SELECT * FROM produk WHERE id = $id")[0];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +29,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg shadow-sm navbar-dark fixed-top bg-primary">
       <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="user.php">STYLISH SHOP</a>
+        <a class="navbar-brand fw-bold" href="index.php">STYLISH SHOP</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -46,7 +52,42 @@
     <!-- Akhir Navbar -->
 
     <!-- Detail Produk -->
+    <div class="container-fluid p-5 mt-5">
+      <div class="row">
+        <div class="col-md-2">
+          <!-- <a href="user.php" class="btn btn-primary">Kembali</a> -->
+        </div>
 
+        <!-- Gambar Produk -->
+        <div class="col-md-4">
+            <img src="img-produk/<?= $produk["gambar"]; ?>" width="300" height="300" class="container-fluid" alt="">
+        </div>
+
+        <!-- Keterangan Produk -->
+        <div class="col-md-5">
+            <table class="table table-borderless">
+              <tr>
+                <th>Nama Produk</th>
+                <td><?= $produk["nama"]; ?></td>
+              </tr>
+              <tr>
+                <th>Stok</th>
+                <td><?= $produk["stok"]; ?></td>
+              </tr>
+              <tr>
+                <th>Deskripsi</th>
+                <td><?= $produk["deskripsi"]; ?></td>
+              </tr>
+              <tr>
+                <th>Harga</th>
+                <td>RP. <?= $produk["harga"];?></td>
+              </tr>
+            </table>
+        </div>
+
+        <div class="col-md-1"></div>
+      </div>
+    </div>
     <!-- Akhir Detail Produk -->
 
     <!-- Footer -->

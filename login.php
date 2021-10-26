@@ -1,4 +1,25 @@
-<?php ?>
+<?php
+require 'functions/functions.php';
+
+if ( isset($_POST['login']) ) {
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $result = mysqli_query($koneksi, "SELECT * FROM user WHERE username = '$username'");
+
+    // cek Username
+    if ( mysqli_num_rows($result) === 1 ) {
+        
+        // cek password
+        $row = mysqli_fetch_assoc($result);
+        if ( password_verify($password, $row["password"]) ) {
+            header("Location: user.php");
+            exit;
+        }
+    }
+    $error = true;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +29,9 @@
 
     <!-- My CSS -->
     <link rel="stylesheet" href="css/style-login.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="asset/bootstrap-5.1.2-dist/css/bootstrap.min.css" />
 
     <!-- Bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
@@ -27,7 +51,13 @@
         <form action="" method="post">
             <div class="form-content">
             <div class="login-form">
-                <div class="title"><h1>Login</h1>
+                <div class="title text-center"><h1><strong>Login</strong></h1>
+                <?php if ( isset($error) ) : ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                     <h6>Username atau Password Salah!</h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php endif; ?>
                 <div class="input-boxes">
                     <div class="input-box">
                         <i class="bi bi-person-fill"></i>
@@ -47,5 +77,7 @@
             </div>
         </form>    
    </div>
+    <!-- JavaScript Bootstrap -->
+    <script src="asset/bootstrap-5.1.2-dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

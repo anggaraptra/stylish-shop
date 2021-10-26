@@ -1,4 +1,6 @@
-<?php ?>
+<?php 
+require 'functions/functions.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +17,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
     <title>Keranjang</title>
 </head>
-<body id="home">
+<body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg shadow-sm navbar-dark fixed-top bg-primary">
       <div class="container-fluid">
@@ -26,7 +28,7 @@
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active me-5" aria-current="page" href="#produk">HALAMAN KERANJANG</a>
+              <a class="nav-link active me-5" aria-current="page" >KERANJANG</a>
             </li>
           </ul>
           <div class="tombol">
@@ -43,61 +45,19 @@
 
     <!-- Halaman Keranjang -->
     <!-- Halaman Produk -->
-    <section id="produk">
+    <section>
     <div class="produk container-fluid row text-center p-5 mx-auto mb-3 mt-5">
         <div class="container-fluid card mr-2 ml-2 mb-3" style="width: 16rem">
-          <img width="160" height="160" src="img/poto.png" class="container-fluid card-img-top" alt=""/>
+          <img width="160" height="160" src="img-produk/" class="container-fluid card-img-top" alt=""/>
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="" class="btn btn-primary" data-bs-target="#detail-produk" data-bs-toggle="modal">Detail</a>
+            <h5 class="card-title"><strong>Card</strong></h5>
+            <p class="card-text">Card body</p>
+            <a href="" class="btn btn-primary">Detail</a>
+            <a href="" class="btn btn-success">Beli</a>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- Detail Produk -->
-    <div class="modal fade" id="detail-produk" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Detail Produk</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-              <div class="col-md-6">
-                <img class="container-fluid" src="img/poto.png" alt="">
-              </div>
-              <div class="col-md-6">
-                <table class="table table-borderless">
-                  <tr>
-                    <th>Nama Produk</th>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th>Stok Produk</th>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th>Deskripsi</th>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th>Harga</th>
-                    <td></td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Akhir Halaman Keranjang -->
 
     <!-- Footer -->
     <footer class="container-fluid bg-primary text-white p-3">

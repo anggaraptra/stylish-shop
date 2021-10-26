@@ -103,57 +103,14 @@ if ( isset($_POST["submit-cari"]) ) {
           <div class="card-body">
             <h5 class="card-title"><strong><?= $row["nama"]; ?></strong></h5>
             <p class="card-text"><?= $row["deskripsi"]; ?></p>
-            <a href="" class="btn btn-primary" data-bs-target="#detail-produk" data-bs-toggle="modal">Detail</a>
+            <a href="detail.php?id=<?= $row["id"]; ?>" class="btn btn-primary">Detail</a>
             <a href="" class="btn btn-warning">Keranjang</a>
-            <!-- <a href="" class="btn btn-success mt-1">Beli</a> -->
+            <a href="pesan.php?id=<?= $row["id"]; ?>" class="btn btn-success mt-1">Beli</a>
           </div>
         </div>
       <?php endforeach; ?>
       </div>
     </section>
-
-  <!-- Detail Produk -->
-  <!-- Detail produk buat di halaman baru -->
-  <div class="modal fade" id="detail-produk" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Detail Produk</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-md-6">
-              <img class="container-fluid" src="" alt="">
-            </div>
-              <div class="col-md-6">
-                <table class="table table-borderless">
-                  <tr>
-                    <th>Nama Produk</th>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th>Stok Produk</th>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th>Deskripsi</th>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th>Harga</th>
-                    <td></td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer mb-4">
-            </div>
-          </div>
-        </div>
-      </div>
-  <!-- Akhir Halaman Produk -->
 
   <!-- Alert Kontak -->
   <div class="modal fade" id="kontak" tabindex="-1"   aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -170,27 +127,27 @@ if ( isset($_POST["submit-cari"]) ) {
 
                   <!-- bagian alert  -->
                   <div class="alert alert-info alert-dismissible fade show d-none my-alert" role="alert">
-                     <strong>Terima Kasih<i class="bi bi-heart-fill"></i></strong> Pesan anda sudah kami terima!
+                     <strong>Terima Kasih <i class="bi bi-heart-fill"></i></strong> Pesan Anda Sudah Kami Terima!
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                   </div>
 
                   <!-- form kontak -->
-                  <form action="" name="contact-form-myportfolio"  id="formKontak" method="">
-                     <div class="mb-2">
+                  <form action="" name="stylishshop-kontak" id="formKontak" method="">
+                     <div class="mb-1">
                       <label for="name" class="form-label">Nama</label>
-                      <input name="nama" type="text" placeholder="Nama anda" class="form-control" id="nama" aria-describedby="name" required />
+                      <input name="nama" type="text" placeholder="Nama anda" class="form-control" id="nama" required />
                     </div>
-                    <div class="mb-2">
+                    <div class="mb-1">
                       <label for="email" class="form-label">Email</label>
-                      <input name="email" type="email" placeholder="Email anda" class="form-control" id="email" aria-describedby="email" />
+                      <input name="email" type="email" placeholder="Email anda" class="form-control" id="email"/>
                     </div>
-                    <div class="mb-2">
+                    <div class="mb-1">
                        <label for="nomer" class="form-label">No Handphone</label>
-                       <input name="nomer" type="number" placeholder="Nomer handphone anda" class="form-control" id="nomer" aria-describedby="email" />
+                       <input name="nomer" type="number" placeholder="Nomer handphone anda" class="form-control" id="nomer"/>
                     </div>
-                    <div class="mb-2">
+                    <div class="mb-1">
                        <label for="pesan" class="form-label">Pesan</label>
-                       <textarea placeholder="Pesan anda" class="form-control" rows="3" id="pesan" name="pesan" required></textarea>
+                       <textarea name="pesan" placeholder="Pesan anda" class="form-control" rows="3" id="pesan" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary btn-kirim" id="submit">Kirim</button>
                     <button class="btn btn-primary btn-loading d-none" type="button" disabled>
@@ -240,9 +197,9 @@ if ( isset($_POST["submit-cari"]) ) {
     </div>
   <!-- Akhir Footer -->
 
-    <!-- My JavaScript -->
-    <script src="js/script.js"></script>
     <!-- JavaScript Bootstrap -->
     <script src="asset/bootstrap-5.1.2-dist/js/bootstrap.bundle.min.js"></script>
+    <!-- My JavaScript -->
+    <script src="js/script.js"></script>
   </body>
 </html>
