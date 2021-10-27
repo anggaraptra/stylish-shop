@@ -1,5 +1,6 @@
 <?php
 require 'functions/functions.php';
+
 $produk = query("SELECT * FROM produk");
 
 // Tombol cari ditekan
@@ -61,29 +62,37 @@ if ( isset($_POST["submit-cari"]) ) {
 
   <!-- Carousel -->
     <section id="beranda">
-      <div class="carousel">
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel shadow">
+        <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="img/baju.png" class="d-block img-fluid" alt="" />
+              <img src="img/baju.png" class="d-block w-100" alt="" />
             </div>
             <div class="carousel-item">
-              <img src="img/celana.png" class="d-block img-fluid" alt="" />
+              <img src="img/celana.png" class="d-block w-100" alt="" />
             </div>
             <div class="carousel-item">
-              <img src="img/sepatu.png" class="d-block img-fluid" alt="" />
+              <img src="img/jaket.png" class="d-block w-100" alt="" />
+            </div>
+            <div class="carousel-item">
+              <img src="img/sepatu.png" class="d-block w-100" alt="" />
+            </div>
+            <div class="carousel-item">
+              <img src="img/shop.png" class="d-block w-100" alt="" />
             </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
@@ -104,8 +113,7 @@ if ( isset($_POST["submit-cari"]) ) {
             <h5 class="card-title"><strong><?= $row["nama"]; ?></strong></h5>
             <p class="card-text"><?= $row["deskripsi"]; ?></p>
             <a href="detail.php?id=<?= $row["id"]; ?>" class="btn btn-primary">Detail</a>
-            <a href="" class="btn btn-warning">Keranjang</a>
-            <a href="pesan.php?id=<?= $row["id"]; ?>" class="btn btn-success mt-1">Beli</a>
+            <a href="pesan.php?id=<?= $row["id"]; ?>" class="btn btn-success">Beli</a>
           </div>
         </div>
       <?php endforeach; ?>
@@ -141,11 +149,7 @@ if ( isset($_POST["submit-cari"]) ) {
                       <label for="email" class="form-label">Email</label>
                       <input name="email" type="email" placeholder="Email anda" class="form-control" id="email"/>
                     </div>
-                    <div class="mb-1">
-                       <label for="nomer" class="form-label">No Handphone</label>
-                       <input name="nomer" type="number" placeholder="Nomer handphone anda" class="form-control" id="nomer"/>
-                    </div>
-                    <div class="mb-1">
+                    <div class="mb-3">
                        <label for="pesan" class="form-label">Pesan</label>
                        <textarea name="pesan" placeholder="Pesan anda" class="form-control" rows="3" id="pesan" required></textarea>
                     </div>

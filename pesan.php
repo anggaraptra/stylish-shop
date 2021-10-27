@@ -2,8 +2,21 @@
 require 'functions/functions.php';
 
 $id = $_GET['id'];
-
 $produk = query("SELECT * FROM produk WHERE id = $id")[0];
+
+if ( isset($_POST["submit-pesanan"]) ) {
+    if ( pesanan($_POST) > 0 ) {
+        echo "<script>
+          alert('Pesanan Segera Di Proses!');
+          document.location.href= 'index.php';
+        </script>"; 
+    } else {
+        echo "<script>
+          alert('Pesanan Gagal Di Kirim!');
+          document.location.href= 'pesan.php';
+        </script>";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,13 +46,13 @@ $produk = query("SELECT * FROM produk WHERE id = $id")[0];
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active me-5" aria-current="page" href="">PESAN PRODUK</a>
+              <a class="nav-link active me-3" aria-current="page" >PESAN PRODUK</a>
             </li>
           </ul>
           <div class="tombol">
             <ul class="navbar-nav mt-1">
               <li class="nav-item">
-                <a class="btn nav-link ms-5 me-5" href="user.php"><h6 class="bi bi-person-fill" data-bs-toggle="tooltip" title="User"></h6></a>
+                <a class="btn nav-link ms-5 me-5" href="user.php"><h6 class="bi bi-person-fill" data-bs-toggle="tooltip" title="User Admin"></h6></a>
               </li>
             </ul>
           </div>
@@ -49,17 +62,22 @@ $produk = query("SELECT * FROM produk WHERE id = $id")[0];
     <!-- Akhir Navbar -->
 
     <!-- Form Pesanan -->
-    <div class="container-fluid p-5 mt-5">
-    <form>
-        <div class="row">
-        <div class="col-md-6">
+    <div class="container-fluid p-4 mt-5">
+    <form action="" method="post">
+      <div class="row">
+        <div class="col-md-2"></div>
+
+        <!-- Bagian Produk -->
+        <div class="col-md-4">
             <div class="mb-3">
                 <label for="nama-produk" class="form-label">Nama Produk</label>
-                <input type="text" class="form-control" id="nama-produk" value="<?= $produk["nama"]; ?>" readonly>
+                <input type="text" class="form-control" id="nama-produk"
+                name="nama_produk" value="<?= $produk["nama"]; ?>" readonly>
             </div>
             <div class="mb-3">
                 <label for="harga-produk" class="form-label">Harga Produk</label>
-                <input type="text" class="form-control" id="harga-produk" value="RP. <?= $produk["harga"]; ?>" readonly>
+                <input type="text" class="form-control" id="harga-produk"
+                name="harga" value="RP. <?= $produk["harga"]; ?>" readonly>
             </div>
             <div class="mb-3">
                 <label for="" class="form-label d-flex">Gambar Produk</label>
@@ -67,30 +85,33 @@ $produk = query("SELECT * FROM produk WHERE id = $id")[0];
             </div>
         </div>
 
-        <div class="col-md-6">
-        <div class="mb-3">
+        <!-- Bagian User -->
+        <div class="col-md-4">
+          <div class="mb-3">
             <label for="nama-anda" class="form-label">Nama Yang Memesan</label>
-            <input type="text" class="form-control" id="nama-anda">
-        </div>
-        <div class="mb-3">
+            <input type="text" class="form-control" id="nama-anda" name="nama_pemesan" required>
+          </div>
+          <div class="mb-3">
             <label for="nomer" class="form-label">No Handphone</label>
-            <input type="number" class="form-control" id="nomer">
-        </div>
-        <div class="mb-3">
+            <input type="number" class="form-control" id="nomer" name="no_hp" required>
+          </div>
+          <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email">
-        </div>
-        <div class="mb-3">
-            <label for="alamat" class="form-label">Alamat Lengkap</label>
-            <textarea class="form-control" name="alamat-anda" id="alamat" rows="3"></textarea>
-        </div>
-        <div class="mb-3">
+            <input type="email" class="form-control" id="email" name="email">
+          </div>
+          <div class="mb-3">
+            <label for="alamat" class="form-label">Alamat Lengkap dan Spesifik</label>
+            <textarea class="form-control" id="alamat" name="alamat_lengkap" rows="3" required></textarea>
+          </div>
+          <div class="mb-3">
             <label for="harga-produk" class="form-label">Total Pesanan</label>
-            <input type="text" class="form-control" id="harga-produk" value="RP. <?= $produk["harga"]; ?>" readonly>
+            <input type="text" class="form-control" id="harga-produk" name="total_pesanan" value="RP. <?= $produk["harga"]; ?>" readonly>
+          </div>
+          <button type="submit" name="submit-pesanan" class="btn btn-success mt-1">Buat Pesanan</button>
         </div>
-        <button type="submit" class="btn btn-success">Buat Pesanan</button>
-        </div>
-        </div>
+
+        <div class="col-md-2"></div>
+      </div>
     </form>
     </div>
     <!-- Akhir Form Pesanan -->

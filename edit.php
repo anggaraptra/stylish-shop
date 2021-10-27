@@ -1,4 +1,11 @@
 <?php 
+session_start();
+
+if ( !isset($_SESSION["login"]) ) {
+  header("Location: login.php");
+  exit;
+}
+
 require 'functions/functions.php';
 
 // ambil data dari url
@@ -56,7 +63,7 @@ if ( isset($_POST["submit-ubah"]) ) {
           <div class="tombol">
             <ul class="navbar-nav mt-1">
               <li class="nav-item">
-                <a class="btn nav-link ms-5 me-5" href="user.php"><h6 class="bi bi-person-fill" data-bs-toggle="tooltip" title="User"></h6></a>
+                <a class="btn nav-link ms-5 me-5" href="user.php"><h6 class="bi bi-person-fill" data-bs-toggle="tooltip" title="User Admin"></h6></a>
               </li>
             </ul>
           </div>

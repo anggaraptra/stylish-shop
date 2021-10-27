@@ -1,7 +1,18 @@
 <?php
+session_start();
+
+if ( !isset($_SESSION["login"]) ) {
+  header("Location: login.php");
+  exit;
+}
+
 require 'functions/functions.php';
 
 $produk = query("SELECT * FROM produk");
+
+$user = query("SELECT * FROM user");
+
+$pesanan = query("SELECT * FROM pesanan");
 
 // cek apakah tombol submit tambah sudah ditekan
 if ( isset($_POST["submit-tambah"]) ) {
@@ -46,13 +57,13 @@ if ( isset($_POST["submit-tambah"]) ) {
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active me-5" aria-current="page" href="#home">USER</a>
+              <a class="nav-link active me-5" aria-current="page" href="#home">ADMIN</a>
             </li>
           </ul>
           <div class="tombol">
             <ul class="navbar-nav mt-1">
               <li class="nav-item">
-                <a class="btn nav-link ms-5 me-5" href="keranjang.php"><h6 class="bi bi-cart-check-fill" data-bs-toggle="tooltip" title="Keranjang"></h6></a>
+                <a class="btn nav-link ms-5 me-5" href="registrasi.php"><h6 class="bi bi-person-plus-fill" data-bs-toggle="tooltip" title="Register User Admin"></h6></a>
               </li>
             </ul>
           </div>
@@ -67,13 +78,14 @@ if ( isset($_POST["submit-tambah"]) ) {
       <div class="col-md-2"></div>
 
       <!-- User -->
-      <div class="col-md-4">
+      <div class="col-md-4 user">
         <div class="content mt-5">
-          <h2 class="fw-bold head-user">USERNAME</h2>
-          <h5 class="bi bi-person-circle mt-3"></h5>
+          <h2 class="fw-bold head-user">USER ADMIN</h2>
+          <?php foreach ($user as $usr) : ?>
+          <h6 class="bi bi-person-circle mt-1 head-name"> <?= $usr["username"]; ?></h6>
+          <?php endforeach; ?>
         </div>
-        <button class="btn btn-primary mt-3 keluar"><a href="login.php">Logout</a></button>
-        <button class="btn btn-primary mt-3 kembali"><a href="index.php">Halaman Utama</a></button>
+        <a class="btn btn-primary mt-2 keluar" href="functions/logout.php">Logout</a>
       </div>
 
       <!-- Tambah Produk -->
@@ -119,6 +131,42 @@ if ( isset($_POST["submit-tambah"]) ) {
     </section>
     <!-- Akhir Halaman User -->
 
+    <!-- Daftar Pesanan -->
+    <section id="daftar-pesanan">
+      <div class="container-fluid text-center p-5">
+        <h2>DAFTAR PESANAN</h2>
+        <table border="1" class="table table-striped table-hover mt-5">
+          <tr>
+            <th>No</th>
+            <th>Nama Produk</th>
+            <th>Harga</th>
+            <th>Nama Pemesan</th>
+            <th>No Hp</th>
+            <th>Email</th>
+            <th>Alamat Lengkap</th>
+            <th>Total Pesanan</th>
+            <th></th>
+          </tr>
+          <?php $i = 1; ?>
+          <?php foreach ($pesanan as $pesan) : ?>
+          <tr>
+            <td><?= $i; ?></td>
+            <td><?= $pesan["nama_produk"]; ?></td>
+            <td><?= $pesan["harga"]; ?></td>
+            <td><?= $pesan["nama_pemesan"]; ?></td>
+            <td><?= $pesan["no_hp"]; ?></td>
+            <td><?= $pesan["email"]; ?></td>
+            <td><?= $pesan["alamat_lengkap"]; ?></td>
+            <td><?= $pesan["total_pesanan"]; ?></td>
+            <td><a class="btn btn-danger" href="functions/hapus_pesan.php?id=<?= $pesan["id"]; ?>" onclick="return confirm('Hapus Pesanan?');">Hapus</a></td>
+          </tr>
+          <?php $i++ ?>
+          <?php endforeach; ?>
+        </table>
+      </div>
+    </section>
+    <!-- Akhir Daftar Pesanan -->
+
     <!-- Halaman Produk -->
     <section id="produk">
       <div class="produk container-fluid row text-center mx-auto p-5 mb-3">
@@ -130,58 +178,13 @@ if ( isset($_POST["submit-tambah"]) ) {
             <h5 class="card-title"><strong><?= $row["nama"]; ?></strong></h5>
             <p class="card-text"><?= $row["deskripsi"]; ?></p>
             <a href="detail.php?id=<?= $row["id"]; ?>" class="btn btn-primary">Detail</a>
-            <a href="" class="btn btn-warning">Keranjang</a>
-            <!-- Edit isi class mt-1 -->
-            <a href="ubah.php?id=<?= $row["id"]; ?>" class="btn btn-secondary mt-1">Edit</a>
-            <a href="functions/hapus.php?id=<?= $row["id"]; ?>" onclick="return confirm('Yakin Ingin Hapus Produk?');" class="btn btn-danger mt-1">Hapus</a>
+            <a href="edit.php?id=<?= $row["id"]; ?>" class="btn btn-secondary">Edit</a>
+            <a href="functions/hapus_produk.php?id=<?= $row["id"]; ?>" onclick="return confirm('Yakin Ingin Hapus Produk?');" class="btn btn-danger mt-1">Hapus</a>
           </div>
         </div>
         <?php endforeach; ?> 
       </div>
     </section>
-
-    <!-- Detail Produk -->
-    <!-- <div class="modal fade" id="detail-produk" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Detail Produk</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-              <div class="col-md-6">
-                <img class="container-fluid" src="" alt="">
-              </div>
-              <div class="col-md-6">
-                <table class="table table-borderless">
-                  <tr>
-                    <th>Nama Produk</th>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th>Stok Produk</th>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th>Deskripsi</th>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th>Harga</th>
-                    <td></td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <!-- Akhir Halaman Produk -->
 
     <!-- Footer -->
       <footer class="container-fluid bg-primary text-white p-3">

@@ -4,7 +4,7 @@
   footer .sosmed {
     margin-bottom: 20px;
   }
-  .head-user {
+  .user {
     text-align: center;
   }
   .head-tambah {
@@ -30,17 +30,11 @@
   color: #fff;
 }
 
-.kembali a {
-  text-decoration: none;
-  color: #fff;
-}
-
-.kembali a:hover {
-  color: #fff;
+#daftar-pesanan h2 {
+  font-weight: bold;
 }
 
 #produk .produk h2 {
-  margin-top: 40px;
   margin-bottom: 40px;
   font-weight: bold;
 }

@@ -169,4 +169,33 @@ function registrasi($data) {
 
     return mysqli_affected_rows($koneksi);
 }
+
+// Fungsi untuk memproses pesanan
+function pesanan($data) {
+    global $koneksi;
+
+    $nama = $data['nama_produk'];
+    $harga = $data['harga'];
+    $nama_pemesan = htmlspecialchars($data['nama_pemesan']);
+    $no_hp = htmlspecialchars($data['no_hp']);
+    $email = htmlspecialchars($data['email']);
+    $alamat = htmlspecialchars($data['alamat_lengkap']);
+    $total = htmlspecialchars($data['total_pesanan']);
+
+    $query = "INSERT INTO pesanan
+    VALUES
+    ('', '$nama', '$harga', '$nama_pemesan', '$no_hp', '$email', '$alamat', '$total')";
+
+    mysqli_query($koneksi, $query);
+
+    return mysqli_affected_rows($koneksi);
+}
+
+// Fungsi umtuk menghapus pesanan
+function hapusPesanan($id) {
+    global $koneksi;
+    mysqli_query($koneksi, "DELETE FROM pesanan WHERE id = $id");
+
+    return mysqli_affected_rows($koneksi);
+}
 ?>
