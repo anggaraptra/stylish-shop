@@ -7,12 +7,12 @@ $produk = query("SELECT * FROM produk WHERE id = $id")[0];
 if ( isset($_POST["submit-pesanan"]) ) {
     if ( pesanan($_POST) > 0 ) {
         echo "<script>
-          alert('Pesanan Segera Di Proses!');
+          alert('Pesanan Segera Di Proses! Silahkan Ditunggu');
           document.location.href= 'index.php';
         </script>"; 
     } else {
         echo "<script>
-          alert('Pesanan Gagal Di Kirim!');
+          alert('Pesanan Gagal! Silahkan Pesan Lagi');
           document.location.href= 'pesan.php';
         </script>";
     }

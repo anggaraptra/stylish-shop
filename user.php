@@ -29,6 +29,24 @@ if ( isset($_POST["submit-tambah"]) ) {
     </script>";
   }
 }
+
+// pagination halaman produk
+$jumlah_data_per_halaman = 4; 
+$jumlah_data = count(query("SELECT * FROM produk"));
+$jumlah_halaman = ceil($jumlah_data / $jumlah_data_per_halaman);
+$halaman_aktif = ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;  
+$data_awal = ($jumlah_data_per_halaman * $halaman_aktif) - $jumlah_data_per_halaman;
+
+$produk = query("SELECT * FROM produk LIMIT $data_awal, $jumlah_data_per_halaman");
+
+// pagination halaman daftar pesanan
+$jumlahDataPerHalaman = 5;
+$jumlahData = count(query("SELECT * FROM pesanan"));
+$jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
+$halamanAktif = ( isset($_GET["hal"]) ) ? $_GET["hal"] : 1;
+$dataAwal = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
+
+$pesanan = query("SELECT * FROM pesanan LIMIT $dataAwal, $jumlahDataPerHalaman");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -150,7 +168,7 @@ if ( isset($_POST["submit-tambah"]) ) {
           <?php $i = 1; ?>
           <?php foreach ($pesanan as $pesan) : ?>
           <tr>
-            <td><?= $i; ?></td>
+            <td><?= $i + $dataAwal; ?></td>
             <td><?= $pesan["nama_produk"]; ?></td>
             <td><?= $pesan["harga"]; ?></td>
             <td><?= $pesan["nama_pemesan"]; ?></td>
@@ -163,13 +181,31 @@ if ( isset($_POST["submit-tambah"]) ) {
           <?php $i++ ?>
           <?php endforeach; ?>
         </table>
+        <!-- Navigasi halaman daftar pesanan -->
+        <div class="halaman container-fluid text-center mt-3">
+        <?php if( $halamanAktif !=1 ) : ?>
+          <a href="?hal=<?= $halamanAktif - 1; ?>">&laquo; PREV</a>
+        <?php endif; ?>
+
+          <?php for( $j = 1; $j <= $jumlahHalaman; $j++ ) : ?>
+            <?php if( $j == $halamanAktif ) : ?>
+              <a class="fw-bold" href="?hal=<?= $j; ?>"><?= $j; ?></a>
+            <?php else : ?>
+              <a href="?hal=<?= $j; ?>"><?= $j; ?></a>
+            <?php endif; ?>
+          <?php endfor; ?>
+
+        <?php if( $halamanAktif !=$jumlahHalaman ) : ?>
+          <a href="?hal=<?= $halamanAktif + 1; ?>">NEXT &raquo;</a>
+        <?php endif; ?>
+      </div>  
       </div>
     </section>
     <!-- Akhir Daftar Pesanan -->
 
     <!-- Halaman Produk -->
     <section id="produk">
-      <div class="produk container-fluid row text-center mx-auto p-5 mb-3">
+      <div class="produk container-fluid row text-center mx-auto p-5">
         <h2>PRODUK TERBARU</h2>
         <?php foreach ( $produk as $row ) : ?>
         <div class="container-fluid card mb-4" style="width: 16rem">
@@ -177,13 +213,31 @@ if ( isset($_POST["submit-tambah"]) ) {
           <div class="card-body">
             <h5 class="card-title"><strong><?= $row["nama"]; ?></strong></h5>
             <p class="card-text"><?= $row["deskripsi"]; ?></p>
-            <a href="detail.php?id=<?= $row["id"]; ?>" class="btn btn-primary">Detail</a>
+            <a href="detail.php?id=<?= $row["id"]; ?>" class="btn btn-warning">Detail</a>
             <a href="edit.php?id=<?= $row["id"]; ?>" class="btn btn-secondary">Edit</a>
             <a href="functions/hapus_produk.php?id=<?= $row["id"]; ?>" onclick="return confirm('Yakin Ingin Hapus Produk?');" class="btn btn-danger mt-1">Hapus</a>
           </div>
         </div>
         <?php endforeach; ?> 
       </div>
+      <!-- Navigasi halaman produk -->
+      <div class="halaman container-fluid text-center mb-5">
+        <?php if( $halaman_aktif !=1 ) : ?>
+          <a href="?halaman=<?= $halaman_aktif - 1; ?>">&laquo; PREV</a>
+        <?php endif; ?>
+
+          <?php for( $k = 1; $k <= $jumlah_halaman; $k++ ) : ?>
+            <?php if( $k == $halaman_aktif ) : ?>
+              <a class="fw-bold" href="?halaman=<?= $k; ?>"><?= $k; ?></a>
+            <?php else : ?>
+              <a href="?halaman=<?= $k; ?>"><?= $k; ?></a>
+            <?php endif; ?>
+          <?php endfor; ?>
+
+        <?php if( $halaman_aktif !=$jumlah_halaman ) : ?>
+          <a href="?halaman=<?= $halaman_aktif + 1; ?>">NEXT &raquo;</a>
+        <?php endif; ?>
+      </div>  
     </section>
 
     <!-- Footer -->

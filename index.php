@@ -1,7 +1,14 @@
 <?php
 require 'functions/functions.php';
 
-$produk = query("SELECT * FROM produk");
+// pagination
+$jumlah_data_per_halaman = 8; 
+$jumlah_data = count(query("SELECT * FROM produk"));
+$jumlah_halaman = ceil($jumlah_data / $jumlah_data_per_halaman);
+$halaman_aktif = ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;  
+$data_awal = ($jumlah_data_per_halaman * $halaman_aktif) - $jumlah_data_per_halaman;
+
+$produk = query("SELECT * FROM produk LIMIT $data_awal, $jumlah_data_per_halaman");
 
 // Tombol cari ditekan
 if ( isset($_POST["submit-cari"]) ) {
@@ -105,19 +112,39 @@ if ( isset($_POST["submit-cari"]) ) {
     <!-- ukuran foto produk 150 kali 150 -->
     <section id="produk">
       <h2>PRODUK TERBARU</h2>
-      <div class="produk container-fluid row text-center mx-auto p-5 mb-3">
+      <div class="produk container-fluid row text-center mx-auto p-5">
       <?php foreach ( $produk as $row ) : ?>
         <div class="container-fluid card mb-4" style="width: 16rem">
         <img width="160" height="160" src="img-produk/<?= $row["gambar"]; ?>" class="container-fluid card-img-top" />
           <div class="card-body">
             <h5 class="card-title"><strong><?= $row["nama"]; ?></strong></h5>
             <p class="card-text"><?= $row["deskripsi"]; ?></p>
-            <a href="detail.php?id=<?= $row["id"]; ?>" class="btn btn-primary">Detail</a>
+            <a href="detail.php?id=<?= $row["id"]; ?>" class="btn btn-warning">Detail</a>
             <a href="pesan.php?id=<?= $row["id"]; ?>" class="btn btn-success">Beli</a>
           </div>
         </div>
       <?php endforeach; ?>
-      </div>
+    </div>
+    <!-- Navigasi Halaman -->
+    <div class="halaman container-fluid text-center mb-5">
+
+      <?php if( $halaman_aktif !=1 ) : ?>
+        <a href="?halaman=<?= $halaman_aktif - 1; ?>">&laquo; PREV</a>
+      <?php endif; ?>
+
+      <?php for( $i = 1; $i <= $jumlah_halaman; $i++ ) : ?>
+        <?php if( $i == $halaman_aktif ) : ?>
+          <a class="fw-bold" href="?halaman=<?= $i; ?>"><?= $i; ?></a>
+        <?php else : ?>
+          <a href="?halaman=<?= $i; ?>"><?= $i; ?></a>
+        <?php endif; ?>
+      <?php endfor; ?>
+
+      <?php if( $halaman_aktif !=$jumlah_halaman ) : ?>
+        <a href="?halaman=<?= $halaman_aktif + 1; ?>">NEXT &raquo;</a>
+      <?php endif; ?>
+
+    </div>
     </section>
 
   <!-- Alert Kontak -->
