@@ -56,7 +56,7 @@ function upload() {
     }
 
     // cek yang di upload gambar atau tidak
-    $ekstensi_gambar_valid = ['jpg', 'jpeg', 'png'];
+    $ekstensi_gambar_valid = ['jpg', 'jpeg', 'png', 'jfif'];
     $ekstensi_gambar = explode('.', $nama_file);
     $ekstensi_gambar = strtolower(end($ekstensi_gambar));
     if ( !in_array($ekstensi_gambar, $ekstensi_gambar_valid) ) {

@@ -69,7 +69,7 @@ if ( isset($_POST["submit-cari"]) ) {
 
   <!-- Carousel -->
     <section id="beranda">
-      <div class="carousel shadow">
+      <div class="carousel shadow-sm">
         <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -80,19 +80,19 @@ if ( isset($_POST["submit-cari"]) ) {
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="img/baju.png" class="d-block w-100" alt="" />
+              <img src="img/baju.png" class="img-fluid d-block w-100" alt="" />
             </div>
             <div class="carousel-item">
-              <img src="img/celana.png" class="d-block w-100" alt="" />
+              <img src="img/celana.png" class="img-fluid d-block w-100" alt="" />
             </div>
             <div class="carousel-item">
-              <img src="img/jaket.png" class="d-block w-100" alt="" />
+              <img src="img/jaket.png" class="img-fluid d-block w-100" alt="" />
             </div>
             <div class="carousel-item">
-              <img src="img/sepatu.png" class="d-block w-100" alt="" />
+              <img src="img/sepatu.png" class="img-fluid d-block w-100" alt="" />
             </div>
             <div class="carousel-item">
-              <img src="img/shop.png" class="d-block w-100" alt="" />
+              <img src="img/shop.png" class="img-fluid d-block w-100" alt="" />
             </div>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
@@ -115,11 +115,11 @@ if ( isset($_POST["submit-cari"]) ) {
       <div class="produk container-fluid row text-center mx-auto p-5">
       <?php foreach ( $produk as $row ) : ?>
         <div class="container-fluid card mb-4" style="width: 16rem">
-        <img width="160" height="160" src="img-produk/<?= $row["gambar"]; ?>" class="container-fluid card-img-top" />
+        <img src="img-produk/<?= $row["gambar"]; ?>" class="img-fluid card-img-top" />
           <div class="card-body">
             <h5 class="card-title"><strong><?= $row["nama"]; ?></strong></h5>
             <p class="card-text"><?= $row["deskripsi"]; ?></p>
-            <a href="detail.php?id=<?= $row["id"]; ?>" class="btn btn-warning">Detail</a>
+            <a href="detail.php?id=<?= $row["id"]; ?>" class="btn btn-primary">Detail</a>
             <a href="pesan.php?id=<?= $row["id"]; ?>" class="btn btn-success">Beli</a>
           </div>
         </div>
@@ -129,7 +129,7 @@ if ( isset($_POST["submit-cari"]) ) {
     <div class="halaman container-fluid text-center mb-5">
 
       <?php if( $halaman_aktif !=1 ) : ?>
-        <a href="?halaman=<?= $halaman_aktif - 1; ?>">&laquo; PREV</a>
+        <a href="?halaman=<?= $halaman_aktif - 1; ?>">&laquo;</a>
       <?php endif; ?>
 
       <?php for( $i = 1; $i <= $jumlah_halaman; $i++ ) : ?>
@@ -141,7 +141,7 @@ if ( isset($_POST["submit-cari"]) ) {
       <?php endfor; ?>
 
       <?php if( $halaman_aktif !=$jumlah_halaman ) : ?>
-        <a href="?halaman=<?= $halaman_aktif + 1; ?>">NEXT &raquo;</a>
+        <a href="?halaman=<?= $halaman_aktif + 1; ?>">&raquo;</a>
       <?php endif; ?>
 
     </div>
@@ -152,11 +152,12 @@ if ( isset($_POST["submit-cari"]) ) {
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
+            <h5 class="modal-title fw-bold">KONTAK KAMI</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
           <div class="container-fluid">
-            <h2 class="text-center fw-bold">KONTAK KAMI</h2>
+            <!-- <h2 class="text-center fw-bold">KONTAK KAMI</h2> -->
               <div class="row justify-content-center">
                 <div class="col-md-6">
 
@@ -219,7 +220,7 @@ if ( isset($_POST["submit-cari"]) ) {
         </div>
         <div class="col-md-4">
           <h6><strong>TENTANG KAMI</strong></h6>
-          <p>Olshop ini adalah toko yang khusus menjual style untuk pria seperti baju, celana, sepatu dan style berpakaian yang kekinian</p>
+          <p>Olshop ini adalah toko yang khusus menjual style untuk pria maupun untuk wanita seperti baju, celana, sepatu dan style berpakaian yang kekinian.</p>
         </div>
       </div>
     </footer>

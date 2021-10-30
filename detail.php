@@ -60,14 +60,14 @@ $produk = query("SELECT * FROM produk WHERE id = $id")[0];
 
         <!-- Gambar Produk -->
         <div class="col-md-4">
-            <img src="img-produk/<?= $produk["gambar"]; ?>" width="300" height="300" class="container-fluid" alt="">
+            <img src="img-produk/<?= $produk["gambar"]; ?>" width="300" height="300" class="img-fluid" alt="">
         </div>
 
         <!-- Keterangan Produk -->
-        <div class="col-md-5">
-            <table class="table table-borderless">
+        <div class="col-md-5 mt-4">
+            <table class="table table-hover">
               <tr>
-                <th>Nama Produk</th>
+                <th>Nama</th>
                 <td><?= $produk["nama"]; ?></td>
               </tr>
               <tr>
@@ -112,7 +112,7 @@ $produk = query("SELECT * FROM produk WHERE id = $id")[0];
         </div>
         <div class="col-md-4">
           <h6><strong>TENTANG KAMI</strong></h6>
-          <p>Olshop ini adalah toko yang khusus menjual style untuk pria seperti baju, celana, sepatu dan style berpakaian yang kekinian</p>
+          <p>Olshop ini adalah toko yang khusus menjual style untuk pria maupun untuk wanita seperti baju, celana, sepatu dan style berpakaian yang kekinian.</p>
         </div>
       </div>
     </footer>

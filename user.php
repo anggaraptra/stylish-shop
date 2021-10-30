@@ -31,7 +31,7 @@ if ( isset($_POST["submit-tambah"]) ) {
 }
 
 // pagination halaman produk
-$jumlah_data_per_halaman = 4; 
+$jumlah_data_per_halaman = 8; 
 $jumlah_data = count(query("SELECT * FROM produk"));
 $jumlah_halaman = ceil($jumlah_data / $jumlah_data_per_halaman);
 $halaman_aktif = ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;  
@@ -91,48 +91,48 @@ $pesanan = query("SELECT * FROM pesanan LIMIT $dataAwal, $jumlahDataPerHalaman")
     <!-- Akhir Navbar -->
 
     <!-- Halaman User -->
-    <section class="container-fluid p-4" id="tambah">
+    <section class="container-fluid p-5" id="tambah">
     <div class="row">
-      <div class="col-md-2"></div>
+      <div class="col-md-1"></div>
 
       <!-- User -->
-      <div class="col-md-4 user">
+      <div class="col-md-5 user">
         <div class="content mt-5">
           <h2 class="fw-bold head-user">USER ADMIN</h2>
           <?php foreach ($user as $usr) : ?>
-          <h6 class="bi bi-person-circle mt-1 head-name"> <?= $usr["username"]; ?></h6>
+          <h6 class="bi bi-person-circle mt-2 head-name ms-1"> <?= $usr["username"]; ?></h6>
           <?php endforeach; ?>
         </div>
         <a class="btn btn-primary mt-2 keluar" href="functions/logout.php">Logout</a>
       </div>
 
       <!-- Tambah Produk -->
-      <div class="col-md-4">
+      <div class="col-md-5">
         <h2 class="mt-5 fw-bold head-tambah text-center">TAMBAH PRODUK</h2>
         <form action="" method="post" enctype="multipart/form-data">
           <table>
               <tr>
-                <td><label for="nama-produk" class="form-label">Nama</label></td>
+                <td><label for="nama-produk" class="form-label">Nama Produk</label></td>
                 <td></td>
                 <td><input type="text" name="nama" id="nama-produk" class="form-control" required></td>
               </tr>
               <tr>
-                <td><label for="stok-produk" class="form-label">Stok</label></td>
+                <td><label for="stok-produk" class="form-label">Stok Produk</label></td>
                 <td></td>
                 <td><input type="number" name="stok" id="stok-produk" class="form-control" required></td>
               </tr>
               <tr>
-                <td><label for="harga-produk" class="form-label">Harga</label></td>
+                <td><label for="harga-produk" class="form-label">Harga Produk</label></td>
                 <td></td>
                 <td><input type="number" name="harga" placeholder="RP." id="harga-produk" class="form-control" required></td>
               </tr>
               <tr>
-                <td><label for="deskripsi-produk" class="form-label">Deskripsi</label></td>
+                <td><label for="deskripsi-produk" class="form-label">Deskripsi Produk</label></td>
                 <td></td>
                 <td><textarea placeholder="Deskripsi produk" rows="2" id="deskripsi-produk" class="form-control" name="deskripsi" required></textarea></td>
               </tr>
               <tr>
-                <td><label for="gambar-produk" class="form-label">Gambar</label></td>
+                <td><label for="gambar-produk" class="form-label">Gambar Produk</label></td>
                 <td></td>
                 <td><input type="file" name="gambar" id="gambar-produk" class="form-control"></td>
               </tr>
@@ -144,16 +144,17 @@ $pesanan = query("SELECT * FROM pesanan LIMIT $dataAwal, $jumlahDataPerHalaman")
           </table>
         </form>
       </div>
-      <div class="col-md-2"></div>
+      <div class="col-md-1"></div>
     </div>
     </section>
     <!-- Akhir Halaman User -->
 
     <!-- Daftar Pesanan -->
     <section id="daftar-pesanan">
-      <div class="container-fluid text-center p-5">
+      <div class="container-fluid text-center">
         <h2>DAFTAR PESANAN</h2>
-        <table border="1" class="table table-striped table-hover mt-5">
+        <div class="table-responsive">
+        <table border="1" class="table table-striped table-hover mt-4">
           <tr>
             <th>No</th>
             <th>Nama Produk</th>
@@ -181,10 +182,11 @@ $pesanan = query("SELECT * FROM pesanan LIMIT $dataAwal, $jumlahDataPerHalaman")
           <?php $i++ ?>
           <?php endforeach; ?>
         </table>
+        </div>
         <!-- Navigasi halaman daftar pesanan -->
-        <div class="halaman container-fluid text-center mt-3">
+        <div class="halaman container-fluid text-center mt-1 mb-5">
         <?php if( $halamanAktif !=1 ) : ?>
-          <a href="?hal=<?= $halamanAktif - 1; ?>">&laquo; PREV</a>
+          <a href="?hal=<?= $halamanAktif - 1; ?>">&laquo;</a>
         <?php endif; ?>
 
           <?php for( $j = 1; $j <= $jumlahHalaman; $j++ ) : ?>
@@ -196,7 +198,7 @@ $pesanan = query("SELECT * FROM pesanan LIMIT $dataAwal, $jumlahDataPerHalaman")
           <?php endfor; ?>
 
         <?php if( $halamanAktif !=$jumlahHalaman ) : ?>
-          <a href="?hal=<?= $halamanAktif + 1; ?>">NEXT &raquo;</a>
+          <a href="?hal=<?= $halamanAktif + 1; ?>">&raquo;</a>
         <?php endif; ?>
       </div>  
       </div>
@@ -209,11 +211,11 @@ $pesanan = query("SELECT * FROM pesanan LIMIT $dataAwal, $jumlahDataPerHalaman")
         <h2>PRODUK TERBARU</h2>
         <?php foreach ( $produk as $row ) : ?>
         <div class="container-fluid card mb-4" style="width: 16rem">
-          <img width="160" height="160" src="img-produk/<?= $row["gambar"]; ?>" class="container-fluid card-img-top" alt=""/>
+          <img src="img-produk/<?= $row["gambar"]; ?>" class="img-fluid card-img-top" alt=""/>
           <div class="card-body">
             <h5 class="card-title"><strong><?= $row["nama"]; ?></strong></h5>
             <p class="card-text"><?= $row["deskripsi"]; ?></p>
-            <a href="detail.php?id=<?= $row["id"]; ?>" class="btn btn-warning">Detail</a>
+            <a href="detail.php?id=<?= $row["id"]; ?>" class="btn btn-primary">Detail</a>
             <a href="edit.php?id=<?= $row["id"]; ?>" class="btn btn-secondary">Edit</a>
             <a href="functions/hapus_produk.php?id=<?= $row["id"]; ?>" onclick="return confirm('Yakin Ingin Hapus Produk?');" class="btn btn-danger mt-1">Hapus</a>
           </div>
@@ -223,7 +225,7 @@ $pesanan = query("SELECT * FROM pesanan LIMIT $dataAwal, $jumlahDataPerHalaman")
       <!-- Navigasi halaman produk -->
       <div class="halaman container-fluid text-center mb-5">
         <?php if( $halaman_aktif !=1 ) : ?>
-          <a href="?halaman=<?= $halaman_aktif - 1; ?>">&laquo; PREV</a>
+          <a href="?halaman=<?= $halaman_aktif - 1; ?>">&laquo;</a>
         <?php endif; ?>
 
           <?php for( $k = 1; $k <= $jumlah_halaman; $k++ ) : ?>
@@ -235,7 +237,7 @@ $pesanan = query("SELECT * FROM pesanan LIMIT $dataAwal, $jumlahDataPerHalaman")
           <?php endfor; ?>
 
         <?php if( $halaman_aktif !=$jumlah_halaman ) : ?>
-          <a href="?halaman=<?= $halaman_aktif + 1; ?>">NEXT &raquo;</a>
+          <a href="?halaman=<?= $halaman_aktif + 1; ?>">&raquo;</a>
         <?php endif; ?>
       </div>  
     </section>
@@ -262,7 +264,7 @@ $pesanan = query("SELECT * FROM pesanan LIMIT $dataAwal, $jumlahDataPerHalaman")
         </div>
         <div class="col-md-4">
           <h6><strong>TENTANG KAMI</strong></h6>
-          <p>Olshop ini adalah toko yang khusus menjual style untuk pria seperti baju, celana, sepatu dan style berpakaian yang kekinian</p>
+          <p>Olshop ini adalah toko yang khusus menjual style untuk pria maupun untuk wanita seperti baju, celana, sepatu dan style berpakaian yang kekinian.</p>
         </div>
       </div>
     </footer>

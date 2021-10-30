@@ -79,28 +79,28 @@ if ( isset($_POST["submit-ubah"]) ) {
       <input type="hidden" name="gambar-lama" value="<?= $produk["gambar"]; ?>">
       <table class="ms-auto me-auto mt-3">
           <tr>
-            <td><label for="nama" class="form-label">Nama</label></td>
+            <td><label for="nama" class="form-label">Nama Produk</label></td>
             <td></td>
             <td><input type="text" name="nama" id="nama" class="form-control" size="50" required value="<?= $produk["nama"]; ?>"></td>
           <tr>
-            <td><label for="stok" class="form-label">Stok</label></td>
+            <td><label for="stok" class="form-label">Stok Produk</label></td>
             <td></td>
             <td><input type="number" name="stok" id="stok" class="form-control" size="50" required value="<?= $produk["stok"]; ?>"></td>
           </tr>
           <tr>
-            <td><label for="harga" class="form-label">Harga</label></td>
+            <td><label for="harga" class="form-label">Harga Produk</label></td>
             <td></td>
             <td><input type="number" name="harga" placeholder="RP." id="harga" class="form-control" size="50" required value="<?= $produk["harga"]; ?>"></td>
           </tr>
           <tr>
-            <td><label for="deskripsi" class="form-label">Deskripsi</label></td>
+            <td><label for="deskripsi" class="form-label">Deskripsi Produk</label></td>
             <td></td>
             <td><textarea placeholder="Deskripsi produk" rows="3" id="deskripsi" class="form-control" name="deskripsi" required><?= $produk["deskripsi"]; ?></textarea></td>
           </tr>
           <tr>
             <td><label class="form-label">Gambar Lama</label></td>
             <td></td>
-            <td><img src="img-produk/<?= $produk["gambar"]; ?>" width="80" height="80" class="mb-1 mt-1"></td>
+            <td><img src="img-produk/<?= $produk["gambar"]; ?>" width="100" height="100" class="img-fluid mb-1 mt-1"></td>
           </tr>
           <tr>
             <td><label for="gambar" class="form-label">Gambar Baru</label></td>
@@ -139,7 +139,7 @@ if ( isset($_POST["submit-ubah"]) ) {
         </div>
         <div class="col-md-4">
           <h6><strong>TENTANG KAMI</strong></h6>
-          <p>Olshop ini adalah toko yang khusus menjual style untuk pria seperti baju, celana, sepatu dan style berpakaian yang kekinian</p>
+          <p>Olshop ini adalah toko yang khusus menjual style untuk pria maupun untuk wanita seperti baju, celana, sepatu dan style berpakaian yang kekinian.</p>
         </div>
       </div>
     </footer>

@@ -175,6 +175,11 @@ form .form-content a:hover {
   text-decoration: underline;
 }
 
+form .form-content .login-text {
+  text-align: center;
+  margin-top: 25px;
+}
+
 @media (max-width: 730px) {
   .container .cover {
     display: none;

@@ -2,7 +2,7 @@
 
 @media screen and (max-width: 764px) {
   footer .sosmed {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
   .user {
     text-align: center;
@@ -43,14 +43,19 @@
   margin-top: -30px;
 }
 
+.produk {
+  margin-bottom: -30px;
+}
+
 .row .card:hover {
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
   transform: scale(1.01);
 }
 
 .card p {
-  margin-top: -8px;
-  margin-bottom: 2px;
+  font-size: 15px;
+  margin-top: -7px;
+  margin-bottom: 4px;
 }
 
 .sosmed a {
@@ -64,26 +69,26 @@
 
 #daftar-pesanan .halaman a {
   text-decoration: none;
-  color: white;
-  background-color: #0d6efd;
+  color: black;
+  background-color: #dadada;
   padding: 7px;
   border-radius: 3px;
 }
 
 #daftar-pesanan .halaman a:hover {
-  background-color: #ececec;
-  color: black;
+  background-color: #0d6efd;
+  color: white;
 }
 
 #produk .halaman a {
   text-decoration: none;
-  color: white;
-  background-color: #0d6efd;
+  color: black;
+  background-color: #dadada;
   padding: 7px;
   border-radius: 3px;
 }
 
 #produk .halaman a:hover {
-  background-color: #ececec;
-  color: black;
+  background-color: #0d6efd;
+  color: white;
 }

@@ -138,7 +138,7 @@ if ( isset($_POST["submit-pesanan"]) ) {
         </div>
         <div class="col-md-4">
           <h6><strong>TENTANG KAMI</strong></h6>
-          <p>Olshop ini adalah toko yang khusus menjual style untuk pria seperti baju, celana, sepatu dan style berpakaian yang kekinian</p>
+          <p>Olshop ini adalah toko yang khusus menjual style untuk pria maupun untuk wanita seperti baju, celana, sepatu dan style berpakaian yang kekinian.</p>
         </div>
       </div>
     </footer>

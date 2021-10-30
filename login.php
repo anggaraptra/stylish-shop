@@ -106,6 +106,7 @@ if ( isset($_POST['login']) ) {
                     <div class="button input-box">
                         <button type="submit" name="login">Login</button>
                     </div>
+                    <div class="login-text text">Pilih yang ada sukai di <a href="index.php">Stylish Shop!</a></div>
                 </div>
                 </div>
             </div>
