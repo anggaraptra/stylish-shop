@@ -10,6 +10,9 @@
   .navbar-nav {
     text-align: center;
   }
+  .container-fluid .navbar-brand {
+    margin: 0 auto;
+  }
 }
 
 @media screen and (max-width: 764px) {
@@ -52,6 +55,10 @@
   margin-bottom: -30px;
 }
 
+.card-title {
+  margin-top: -10px;
+}
+
 .card p {
   font-size: 15px;
   margin-top: -7px;
@@ -80,7 +87,7 @@
   text-decoration: none;
   color: black;
   background-color: #dadada;
-  padding: 7px;
+  padding: 10px;
   border-radius: 3px;
 }
 

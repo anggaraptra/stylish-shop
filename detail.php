@@ -4,6 +4,7 @@ require 'functions/functions.php';
 $id = $_GET['id'];
 
 $produk = query("SELECT * FROM produk WHERE id = $id")[0];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,14 +23,11 @@ $produk = query("SELECT * FROM produk WHERE id = $id")[0];
     <title>Detail Produk</title>
 </head>
 <body>
-    <!-- Menggunakan seperti tabel
-        bagian kiri menampilkan gambar produk dan bagian kanan
-        tentang produk
-    -->
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg shadow-sm navbar-dark fixed-top bg-primary">
       <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="index.php">STYLISH SHOP</a>
+        <a href="index.php"><img src="img/logo stylish shop.png" class="img-fluid" width="50" height="50" alt=""></a>
+        <a class="navbar-brand fw-bold mt-1 ms-1" href="index.php">STYLISH SHOP</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -42,7 +40,7 @@ $produk = query("SELECT * FROM produk WHERE id = $id")[0];
           <div class="tombol">
             <ul class="navbar-nav mt-1">
               <li class="nav-item">
-                <a class="btn nav-link ms-5 me-5" href="user.php"><h6 class="bi bi-person-fill" data-bs-toggle="tooltip" title="User Admin"></h6></a>
+                <a class="btn nav-link ms-5 me-5" href="useradmin.php"><h6 class="bi bi-person-fill" data-bs-toggle="tooltip" title="User Admin"></h6></a>
               </li>
             </ul>
           </div>
@@ -54,9 +52,7 @@ $produk = query("SELECT * FROM produk WHERE id = $id")[0];
     <!-- Detail Produk -->
     <div class="container-fluid p-5 mt-5">
       <div class="row">
-        <div class="col-md-2">
-          <!-- <a href="user.php" class="btn btn-primary">Kembali</a> -->
-        </div>
+        <div class="col-md-2"></div>
 
         <!-- Gambar Produk -->
         <div class="col-md-4">
@@ -64,22 +60,22 @@ $produk = query("SELECT * FROM produk WHERE id = $id")[0];
         </div>
 
         <!-- Keterangan Produk -->
-        <div class="col-md-5 mt-4">
+        <div class="col-md-5 mt-1">
             <table class="table table-hover">
               <tr>
-                <th>Nama</th>
+                <th>Nama Produk</th>
                 <td><?= $produk["nama"]; ?></td>
               </tr>
               <tr>
-                <th>Stok</th>
+                <th>Stok Produk</th>
                 <td><?= $produk["stok"]; ?></td>
               </tr>
               <tr>
-                <th>Deskripsi</th>
+                <th>Deskripsi Produk</th>
                 <td><?= $produk["deskripsi"]; ?></td>
               </tr>
               <tr>
-                <th>Harga</th>
+                <th>Harga Produk</th>
                 <td>RP. <?= $produk["harga"];?></td>
               </tr>
             </table>
@@ -107,7 +103,7 @@ $produk = query("SELECT * FROM produk WHERE id = $id")[0];
             <i class="bi bi-whatsapp"> 087854712611 </i>
             <a href="https://www.instagram.com/anggara.ptra/" target="_blank"><i class="bi bi-instagram"> anggara.ptra </i></a>
             <a href="https://www.facebook.com/ikadekanggaraputra.ikadekanggaraputra/" target="_blank"><i class="bi bi-facebook">  AnggaraPutra </i></a>
-            <i class="bi bi-telephone-fill"> 089680897900 </i>
+            <a href="http://localhost/sepintasgame/" target="_blank"><img src="img/logo sepintas.png" width="18" height="18" class="img-fluid"> Sepintas Game</a>
           </div>
         </div>
         <div class="col-md-4">

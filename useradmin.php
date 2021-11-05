@@ -8,11 +8,11 @@ if ( !isset($_SESSION["login"]) ) {
 
 require 'functions/functions.php';
 
-$produk = query("SELECT * FROM produk");
-
 $user = query("SELECT * FROM user");
 
 $pesanan = query("SELECT * FROM pesanan");
+
+$produk = query("SELECT * FROM produk");
 
 // cek apakah tombol submit tambah sudah ditekan
 if ( isset($_POST["submit-tambah"]) ) {
@@ -20,24 +20,15 @@ if ( isset($_POST["submit-tambah"]) ) {
   if ( tambah($_POST) > 0 ) {
     echo "<script>
       alert('Data Berhasil Di Tambah!');
-      document.location.href = 'user.php';
+      document.location.href = 'useradmin.php';
     </script>";
   } else {
     echo "<script>
       alert('Data Gagal Di Tambah!');
-      document.location.href = 'user.php';
+      document.location.href = 'useradmin.php';
     </script>";
   }
 }
-
-// pagination halaman produk
-$jumlah_data_per_halaman = 8; 
-$jumlah_data = count(query("SELECT * FROM produk"));
-$jumlah_halaman = ceil($jumlah_data / $jumlah_data_per_halaman);
-$halaman_aktif = ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;  
-$data_awal = ($jumlah_data_per_halaman * $halaman_aktif) - $jumlah_data_per_halaman;
-
-$produk = query("SELECT * FROM produk LIMIT $data_awal, $jumlah_data_per_halaman");
 
 // pagination halaman daftar pesanan
 $jumlahDataPerHalaman = 5;
@@ -46,7 +37,16 @@ $jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
 $halamanAktif = ( isset($_GET["hal"]) ) ? $_GET["hal"] : 1;
 $dataAwal = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
 
-$pesanan = query("SELECT * FROM pesanan LIMIT $dataAwal, $jumlahDataPerHalaman");
+$pesanan = query("SELECT * FROM pesanan ORDER BY id ASC LIMIT $dataAwal, $jumlahDataPerHalaman");
+
+// pagination halaman produk
+$jumlah_data_per_halaman = 8; 
+$jumlah_data = count(query("SELECT * FROM produk"));
+$jumlah_halaman = ceil($jumlah_data / $jumlah_data_per_halaman);
+$halaman_aktif = ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;  
+$data_awal = ($jumlah_data_per_halaman * $halaman_aktif) - $jumlah_data_per_halaman;
+
+$produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah_data_per_halaman");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +55,7 @@ $pesanan = query("SELECT * FROM pesanan LIMIT $dataAwal, $jumlahDataPerHalaman")
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- My CSS -->
-    <link rel="stylesheet" href="css/style-user.css" />
+    <link rel="stylesheet" href="css/style-useradmin.css" />
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="asset/bootstrap-5.1.2-dist/css/bootstrap.min.css" />
@@ -68,7 +68,8 @@ $pesanan = query("SELECT * FROM pesanan LIMIT $dataAwal, $jumlahDataPerHalaman")
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg shadow-sm navbar-dark fixed-top bg-primary">
       <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="index.php">STYLISH SHOP</a>
+        <a href="index.php"><img src="img/logo stylish shop.png" class="img-fluid" width="50" height="50" alt=""></a>
+        <a class="navbar-brand fw-bold mt-1 ms-1" href="index.php">STYLISH SHOP</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -100,7 +101,7 @@ $pesanan = query("SELECT * FROM pesanan LIMIT $dataAwal, $jumlahDataPerHalaman")
         <div class="content mt-5">
           <h2 class="fw-bold head-user">USER ADMIN</h2>
           <?php foreach ($user as $usr) : ?>
-          <h6 class="bi bi-person-circle mt-2 head-name ms-1"> <?= $usr["username"]; ?></h6>
+          <h6 class="bi bi-person-circle mt-2 head-name"> <?= $usr["username"]; ?></h6>
           <?php endforeach; ?>
         </div>
         <a class="btn btn-primary mt-2 keluar" href="functions/logout.php">Logout</a>
@@ -152,7 +153,7 @@ $pesanan = query("SELECT * FROM pesanan LIMIT $dataAwal, $jumlahDataPerHalaman")
     <!-- Daftar Pesanan -->
     <section id="daftar-pesanan">
       <div class="container-fluid text-center">
-        <h2>DAFTAR PESANAN</h2>
+        <h2>PESANAN</h2>
         <div class="table-responsive">
         <table border="1" class="table table-striped table-hover mt-4">
           <tr>
@@ -208,14 +209,14 @@ $pesanan = query("SELECT * FROM pesanan LIMIT $dataAwal, $jumlahDataPerHalaman")
     <!-- Halaman Produk -->
     <section id="produk">
       <div class="produk container-fluid row text-center mx-auto p-5">
-        <h2>PRODUK TERBARU</h2>
+        <h2>PRODUK</h2>
         <?php foreach ( $produk as $row ) : ?>
         <div class="container-fluid card mb-4" style="width: 16rem">
           <img src="img-produk/<?= $row["gambar"]; ?>" class="img-fluid card-img-top" alt=""/>
           <div class="card-body">
             <h5 class="card-title"><strong><?= $row["nama"]; ?></strong></h5>
             <p class="card-text"><?= $row["deskripsi"]; ?></p>
-            <a href="detail.php?id=<?= $row["id"]; ?>" class="btn btn-primary">Detail</a>
+            <a href="detail.php?id=<?= $row["id"]; ?>" class="btn btn-warning">Detail</a>
             <a href="edit.php?id=<?= $row["id"]; ?>" class="btn btn-secondary">Edit</a>
             <a href="functions/hapus_produk.php?id=<?= $row["id"]; ?>" onclick="return confirm('Yakin Ingin Hapus Produk?');" class="btn btn-danger mt-1">Hapus</a>
           </div>
@@ -225,7 +226,7 @@ $pesanan = query("SELECT * FROM pesanan LIMIT $dataAwal, $jumlahDataPerHalaman")
       <!-- Navigasi halaman produk -->
       <div class="halaman container-fluid text-center mb-5">
         <?php if( $halaman_aktif !=1 ) : ?>
-          <a href="?halaman=<?= $halaman_aktif - 1; ?>">&laquo;</a>
+          <a href="?halaman=<?= $halaman_aktif - 1; ?>">Prev</a>
         <?php endif; ?>
 
           <?php for( $k = 1; $k <= $jumlah_halaman; $k++ ) : ?>
@@ -237,7 +238,7 @@ $pesanan = query("SELECT * FROM pesanan LIMIT $dataAwal, $jumlahDataPerHalaman")
           <?php endfor; ?>
 
         <?php if( $halaman_aktif !=$jumlah_halaman ) : ?>
-          <a href="?halaman=<?= $halaman_aktif + 1; ?>">&raquo;</a>
+          <a href="?halaman=<?= $halaman_aktif + 1; ?>">Next</a>
         <?php endif; ?>
       </div>  
     </section>
@@ -259,7 +260,7 @@ $pesanan = query("SELECT * FROM pesanan LIMIT $dataAwal, $jumlahDataPerHalaman")
             <i class="bi bi-whatsapp"> 087854712611 </i>
             <a href="https://www.instagram.com/anggara.ptra/" target="_blank"><i class="bi bi-instagram"> anggara.ptra </i></a>
             <a href="https://www.facebook.com/ikadekanggaraputra.ikadekanggaraputra/" target="_blank"><i class="bi bi-facebook">  AnggaraPutra </i></a>
-            <i class="bi bi-telephone-fill"> 089680897900 </i>
+            <a href="http://localhost/sepintasgame/" target="_blank"><img src="img/logo sepintas.png" width="18" height="18" class="img-fluid"> Sepintas Game</a>
           </div>
         </div>
         <div class="col-md-4">

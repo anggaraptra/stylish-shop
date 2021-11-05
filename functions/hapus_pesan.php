@@ -13,12 +13,12 @@ $id = $_GET["id"];
 if ( hapusPesanan($id) > 0 ) {
     echo "<script>
         alert('Pesanan Berhasil Di Hapus!');
-        document.location.href = '../user.php';
+        document.location.href = '../useradmin.php';
     </script>";
 } else {
     echo "<script>
         alert('Pesanan Gagal Di Hapus!');
-        document.location.href = '../user.php';
+        document.location.href = '../useradmin.php';
      </script>";
 }
 ?>

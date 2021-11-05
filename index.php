@@ -8,7 +8,7 @@ $jumlah_halaman = ceil($jumlah_data / $jumlah_data_per_halaman);
 $halaman_aktif = ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;  
 $data_awal = ($jumlah_data_per_halaman * $halaman_aktif) - $jumlah_data_per_halaman;
 
-$produk = query("SELECT * FROM produk LIMIT $data_awal, $jumlah_data_per_halaman");
+$produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah_data_per_halaman");
 
 // Tombol cari ditekan
 if ( isset($_POST["submit-cari"]) ) {
@@ -35,7 +35,8 @@ if ( isset($_POST["submit-cari"]) ) {
   <!-- Navbar -->
     <nav class="navbar navbar-expand-lg shadow-sm navbar-dark fixed-top bg-primary">
       <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="#home">STYLISH SHOP</a>
+        <img src="img/logo stylish shop.png" class="img-fluid" width="50" height="50" alt="">
+        <a class="navbar-brand fw-bold mt-1 ms-1" href="#home">STYLISH SHOP</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -119,7 +120,7 @@ if ( isset($_POST["submit-cari"]) ) {
           <div class="card-body">
             <h5 class="card-title"><strong><?= $row["nama"]; ?></strong></h5>
             <p class="card-text"><?= $row["deskripsi"]; ?></p>
-            <a href="detail.php?id=<?= $row["id"]; ?>" class="btn btn-primary">Detail</a>
+            <a href="detail.php?id=<?= $row["id"]; ?>" class="btn btn-warning">Detail</a>
             <a href="pesan.php?id=<?= $row["id"]; ?>" class="btn btn-success">Beli</a>
           </div>
         </div>
@@ -129,7 +130,7 @@ if ( isset($_POST["submit-cari"]) ) {
     <div class="halaman container-fluid text-center mb-5">
 
       <?php if( $halaman_aktif !=1 ) : ?>
-        <a href="?halaman=<?= $halaman_aktif - 1; ?>">&laquo;</a>
+        <a href="?halaman=<?= $halaman_aktif - 1; ?>">Prev</a>
       <?php endif; ?>
 
       <?php for( $i = 1; $i <= $jumlah_halaman; $i++ ) : ?>
@@ -141,7 +142,7 @@ if ( isset($_POST["submit-cari"]) ) {
       <?php endfor; ?>
 
       <?php if( $halaman_aktif !=$jumlah_halaman ) : ?>
-        <a href="?halaman=<?= $halaman_aktif + 1; ?>">&raquo;</a>
+        <a href="?halaman=<?= $halaman_aktif + 1; ?>">Next</a>
       <?php endif; ?>
 
     </div>
@@ -215,7 +216,7 @@ if ( isset($_POST["submit-cari"]) ) {
             <i class="bi bi-whatsapp"> 087854712611 </i>
             <a href="https://www.instagram.com/anggara.ptra/" target="_blank"><i class="bi bi-instagram"> anggara.ptra </i></a>
             <a href="https://www.facebook.com/ikadekanggaraputra.ikadekanggaraputra/" target="_blank"><i class="bi bi-facebook">  AnggaraPutra </i></a>
-            <i class="bi bi-telephone-fill"> 089680897900 </i>
+            <a href="http://localhost/sepintasgame/" target="_blank"><img src="img/logo sepintas.png" width="18" height="18" class="img-fluid"> Sepintas Game</a>
           </div>
         </div>
         <div class="col-md-4">

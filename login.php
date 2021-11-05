@@ -19,7 +19,7 @@ if ( isset($_COOKIE['id']) && isset($_COOKIE['key']) ) {
 
 // cek session
 if ( isset($_SESSION["login"]) ) {
-    header("Location: user.php");
+    header("Location: useradmin.php");
     exit;
 }
 
@@ -45,7 +45,7 @@ if ( isset($_POST['login']) ) {
                 setcookie('key', hash('sha256', $row['username']), time()+60*60, '/', 'localhost', 1);
             }
 
-            header("Location: user.php");
+            header("Location: useradmin.php");
             exit;
         }
     }

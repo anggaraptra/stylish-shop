@@ -6,6 +6,12 @@
   }
 }
 
+@media screen and (max-width: 950px) {
+  .container-fluid .navbar-brand {
+    margin: 0 auto;
+  }
+}
+
 * {
   font-family: "Mulish", sans-serif;
   box-sizing: border-box;

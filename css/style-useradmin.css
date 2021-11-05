@@ -13,6 +13,12 @@
   }
 }
 
+@media screen and (max-width: 950px) {
+  .container-fluid .navbar-brand {
+    margin: 0 auto;
+  }
+}
+
 * {
   font-family: "Mulish", sans-serif;
 }
@@ -52,6 +58,10 @@
   transform: scale(1.01);
 }
 
+.card-title {
+  margin-top: -10px;
+}
+
 .card p {
   font-size: 15px;
   margin-top: -7px;
@@ -71,7 +81,7 @@
   text-decoration: none;
   color: black;
   background-color: #dadada;
-  padding: 7px;
+  padding: 10px;
   border-radius: 3px;
 }
 
@@ -84,7 +94,7 @@
   text-decoration: none;
   color: black;
   background-color: #dadada;
-  padding: 7px;
+  padding: 10px;
   border-radius: 3px;
 }
 
