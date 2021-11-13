@@ -67,13 +67,16 @@ if ( isset($_POST['login']) ) {
 
     <!-- Bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>Login</title>
 </head>
 <body>
    <div class="container">
        <div class="cover">
            <div class="front">
-               <img src="img/login.jpg" alt="">
+               <img src="img/logo stylish shop 2.png" alt="" data-aos="flip-up" data-aos-duration="600">
                <div class="text">
                    <span class="text-1">Pilih yang anda sukai</span>
                    <span class="text-2">Yang membuat anda tertarik</span>
@@ -84,11 +87,15 @@ if ( isset($_POST['login']) ) {
             <div class="form-content">
             <div class="login-form">
                 <div class="title text-center"><h1><strong>Login</strong></h1>
-                <?php if ( isset($error) ) : ?>
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                     <h6>Username atau Password Salah!</h6>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div class="alert alert-success alert-admin" role="alert">
+                    <h6>Login Jika Anda Admin !</h6>
                 </div>
+                <?php if ( isset($error) ) : ?>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <h6>Username atau Password Salah!</h6>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php return false; ?>
                 <?php endif; ?>
                 <div class="input-boxes">
                     <div class="input-box">
@@ -115,5 +122,13 @@ if ( isset($_POST['login']) ) {
    </div>
     <!-- JavaScript Bootstrap -->
     <script src="asset/bootstrap-5.1.2-dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+        });
+    </script>
 </body>
 </html>

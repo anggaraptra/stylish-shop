@@ -72,7 +72,7 @@ if ( isset($_POST["registrasi"]) ) {
                         <div class="button input-box">
                             <button type="submit" name="registrasi">Register</button>
                         </div>
-                        <div class="register-text text">Sudah punya akun? <a href="login.php">Login sekarang</a> </div>
+                        <div class="register-text text">Sudah punya akun? Silahkan Login di <a href="index.php">Stylish Shop!</a> </div>
                     </div>
                     </div>
                 </div>

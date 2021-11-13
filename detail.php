@@ -20,6 +20,9 @@ $produk = query("SELECT * FROM produk WHERE id = $id")[0];
 
     <!-- Bootstrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>Detail Produk</title>
 </head>
 <body>
@@ -61,20 +64,20 @@ $produk = query("SELECT * FROM produk WHERE id = $id")[0];
 
         <!-- Keterangan Produk -->
         <div class="col-md-5 mt-1">
-            <table class="table table-hover">
-              <tr>
+            <table class="table table-borderless table-striped">
+              <tr data-aos="fade-up" data-aos-duration="200" data-aos-delay="200">
                 <th>Nama Produk</th>
                 <td><?= $produk["nama"]; ?></td>
               </tr>
-              <tr>
+              <tr data-aos="fade-up" data-aos-duration="200" data-aos-delay="300">
                 <th>Stok Produk</th>
                 <td><?= $produk["stok"]; ?></td>
               </tr>
-              <tr>
+              <tr data-aos="fade-up" data-aos-duration="200" data-aos-delay="400">
                 <th>Deskripsi Produk</th>
                 <td><?= $produk["deskripsi"]; ?></td>
               </tr>
-              <tr>
+              <tr data-aos="fade-up" data-aos-duration="200" data-aos-delay="500">
                 <th>Harga Produk</th>
                 <td>RP. <?= $produk["harga"];?></td>
               </tr>
@@ -119,5 +122,13 @@ $produk = query("SELECT * FROM produk WHERE id = $id")[0];
 
     <!-- Javascript Bootstrap -->
     <script src="asset/bootstrap-5.1.2-dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        once: true,
+      });
+    </script>
 </body>
 </html>

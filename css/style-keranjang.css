@@ -1,11 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
 
-@media screen and (max-width: 764px) {
-  footer .sosmed {
-    margin-bottom: 15px;
-  }
-}
-
 * {
   font-family: "Mulish", sans-serif;
 }
@@ -31,4 +25,10 @@
 
 .sosmed a:hover {
   color: white;
+}
+
+@media screen and (max-width: 950px) {
+  footer .sosmed {
+    margin-bottom: 15px;
+  }
 }

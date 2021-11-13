@@ -29,14 +29,17 @@ if ( isset($_POST["submit-cari"]) ) {
 
     <!-- Bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>Stylish Shop</title>
   </head>
-  <body id="home">
+  <body>
   <!-- Navbar -->
     <nav class="navbar navbar-expand-lg shadow-sm navbar-dark fixed-top bg-primary">
       <div class="container-fluid">
         <img src="img/logo stylish shop.png" class="img-fluid" width="50" height="50" alt="">
-        <a class="navbar-brand fw-bold mt-1 ms-1" href="#home">STYLISH SHOP</a>
+        <a class="navbar-brand fw-bold mt-1 ms-1" href="">STYLISH SHOP</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -69,7 +72,7 @@ if ( isset($_POST["submit-cari"]) ) {
   <!-- Akhir Navbar -->
 
   <!-- Carousel -->
-    <section id="beranda">
+    <section id="beranda" class="p-4">
       <div class="carousel shadow-sm">
         <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-indicators">
@@ -81,19 +84,19 @@ if ( isset($_POST["submit-cari"]) ) {
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="img/baju.png" class="img-fluid d-block w-100" alt="" />
+              <img src="img/baju.png" class="img-fluid" alt="" />
             </div>
             <div class="carousel-item">
-              <img src="img/celana.png" class="img-fluid d-block w-100" alt="" />
+              <img src="img/celana.png" class="img-fluid" alt="" />
             </div>
             <div class="carousel-item">
-              <img src="img/jaket.png" class="img-fluid d-block w-100" alt="" />
+              <img src="img/jaket.png" class="img-fluid" alt="" />
             </div>
             <div class="carousel-item">
-              <img src="img/sepatu.png" class="img-fluid d-block w-100" alt="" />
+              <img src="img/sepatu.png" class="img-fluid" alt="" />
             </div>
             <div class="carousel-item">
-              <img src="img/shop.png" class="img-fluid d-block w-100" alt="" />
+              <img src="img/shop.png" class="img-fluid" alt="" />
             </div>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
@@ -110,16 +113,16 @@ if ( isset($_POST["submit-cari"]) ) {
   <!-- Akhir Carousel  -->
 
   <!-- Halaman Produk -->
-    <!-- ukuran foto produk 150 kali 150 -->
     <section id="produk">
-      <h2>PRODUK TERBARU</h2>
+      <h2 data-aos="zoom-in" data-aos-duration="600" data-aos-delay="600">PRODUK TERBARU</h2>
       <div class="produk container-fluid row text-center mx-auto p-5">
       <?php foreach ( $produk as $row ) : ?>
         <div class="container-fluid card mb-4" style="width: 16rem">
         <img src="img-produk/<?= $row["gambar"]; ?>" class="img-fluid card-img-top" />
           <div class="card-body">
-            <h5 class="card-title"><strong><?= $row["nama"]; ?></strong></h5>
+            <h5 class="card-title fw-bold"><?= $row["nama"]; ?></h5>
             <p class="card-text"><?= $row["deskripsi"]; ?></p>
+            <p class="card-text fw-bold">RP. <?= $row["harga"]; ?></p>
             <a href="detail.php?id=<?= $row["id"]; ?>" class="btn btn-warning">Detail</a>
             <a href="pesan.php?id=<?= $row["id"]; ?>" class="btn btn-success">Beli</a>
           </div>
@@ -130,7 +133,7 @@ if ( isset($_POST["submit-cari"]) ) {
     <div class="halaman container-fluid text-center mb-5">
 
       <?php if( $halaman_aktif !=1 ) : ?>
-        <a href="?halaman=<?= $halaman_aktif - 1; ?>">Prev</a>
+        <a href="?halaman=<?= $halaman_aktif - 1; ?>">&laquo;</a>
       <?php endif; ?>
 
       <?php for( $i = 1; $i <= $jumlah_halaman; $i++ ) : ?>
@@ -142,7 +145,7 @@ if ( isset($_POST["submit-cari"]) ) {
       <?php endfor; ?>
 
       <?php if( $halaman_aktif !=$jumlah_halaman ) : ?>
-        <a href="?halaman=<?= $halaman_aktif + 1; ?>">Next</a>
+        <a href="?halaman=<?= $halaman_aktif + 1; ?>">&raquo;</a>
       <?php endif; ?>
 
     </div>
@@ -232,6 +235,39 @@ if ( isset($_POST["submit-cari"]) ) {
 
     <!-- JavaScript Bootstrap -->
     <script src="asset/bootstrap-5.1.2-dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        once: true,
+      });
+    </script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+    <script>
+      gsap.from("#beranda", { duration: 0.6, y: -60, opacity: 0, delay: 0.4, ease: "power4" });
+    </script>
+
+    <!-- Vanilla Tilt -->
+    <script src="js/vanilla-tilt.js"></script>
+    <script>
+      function myFunction(x) {
+        if (x.matches) {
+          VanillaTilt.init(document.querySelectorAll(".card"), {
+            max: 6,
+            scale: 1.02,
+          });
+        } else {
+        }
+      }
+
+      let x = window.matchMedia("(min-width: 1050px)");
+      myFunction(x);
+      x.addListener(myFunction);
+    </script>
+
     <!-- My JavaScript -->
     <script src="js/script.js"></script>
   </body>

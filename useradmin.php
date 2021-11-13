@@ -40,7 +40,7 @@ $dataAwal = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
 $pesanan = query("SELECT * FROM pesanan ORDER BY id ASC LIMIT $dataAwal, $jumlahDataPerHalaman");
 
 // pagination halaman produk
-$jumlah_data_per_halaman = 8; 
+$jumlah_data_per_halaman = 4; 
 $jumlah_data = count(query("SELECT * FROM produk"));
 $jumlah_halaman = ceil($jumlah_data / $jumlah_data_per_halaman);
 $halaman_aktif = ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;  
@@ -209,13 +209,14 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
     <!-- Halaman Produk -->
     <section id="produk">
       <div class="produk container-fluid row text-center mx-auto p-5">
-        <h2>PRODUK</h2>
+        <h2>PRODUK ADMIN</h2>
         <?php foreach ( $produk as $row ) : ?>
         <div class="container-fluid card mb-4" style="width: 16rem">
           <img src="img-produk/<?= $row["gambar"]; ?>" class="img-fluid card-img-top" alt=""/>
           <div class="card-body">
-            <h5 class="card-title"><strong><?= $row["nama"]; ?></strong></h5>
+            <h5 class="card-title fw-bold"><?= $row["nama"]; ?></h5>
             <p class="card-text"><?= $row["deskripsi"]; ?></p>
+            <p class="card-text fw-bold">RP. <?= $row["harga"]; ?></p>
             <a href="detail.php?id=<?= $row["id"]; ?>" class="btn btn-warning">Detail</a>
             <a href="edit.php?id=<?= $row["id"]; ?>" class="btn btn-secondary">Edit</a>
             <a href="functions/hapus_produk.php?id=<?= $row["id"]; ?>" onclick="return confirm('Yakin Ingin Hapus Produk?');" class="btn btn-danger mt-1">Hapus</a>
@@ -226,7 +227,7 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
       <!-- Navigasi halaman produk -->
       <div class="halaman container-fluid text-center mb-5">
         <?php if( $halaman_aktif !=1 ) : ?>
-          <a href="?halaman=<?= $halaman_aktif - 1; ?>">Prev</a>
+          <a href="?halaman=<?= $halaman_aktif - 1; ?>">&laquo;</a>
         <?php endif; ?>
 
           <?php for( $k = 1; $k <= $jumlah_halaman; $k++ ) : ?>
@@ -238,7 +239,7 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
           <?php endfor; ?>
 
         <?php if( $halaman_aktif !=$jumlah_halaman ) : ?>
-          <a href="?halaman=<?= $halaman_aktif + 1; ?>">Next</a>
+          <a href="?halaman=<?= $halaman_aktif + 1; ?>">&raquo;</a>
         <?php endif; ?>
       </div>  
     </section>
@@ -273,6 +274,24 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
       <p>Developed by Anggara | Copyright @2021</p>
     </div>
     <!-- Akhir Footer -->
+
+    <!-- Vanilla Tilt -->
+    <script src="js/vanilla-tilt.js"></script>
+    <script>
+      function myFunction(x) {
+        if (x.matches) {
+          VanillaTilt.init(document.querySelectorAll(".card"), {
+            max: 6,
+            scale: 1.02,
+          });
+        } else {
+        }
+      }
+
+      let x = window.matchMedia("(min-width: 1050px)");
+      myFunction(x);
+      x.addListener(myFunction);
+    </script>
 
     <!-- JavaScript Bootstrap -->
     <script src="asset/bootstrap-5.1.2-dist/js/bootstrap.bundle.min.js"></script>

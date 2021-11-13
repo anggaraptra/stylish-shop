@@ -37,7 +37,7 @@ body {
 
 .container .cover::before {
   content: "";
-  border-radius: 20px 0 0 20px;
+  border-radius: 25px 0 0 25px;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -53,6 +53,7 @@ body {
   width: 100%;
   object-fit: cover;
   z-index: 12;
+  animation: 0.8s hilang;
 }
 
 .container .cover .text {
@@ -106,9 +107,9 @@ form .registrasi-form .title:before {
   width: 20px;
 }
 
-form .form-content .input-boxes {
+/* form .form-content .input-boxes {
   margin-top: 30px;
-}
+} */
 
 form .form-content .input-box {
   display: flex;
@@ -185,6 +186,15 @@ form .form-content a {
 form .form-content .register-text {
   text-align: center;
   margin-top: 25px;
+}
+
+@keyframes hilang {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 
 @media (max-width: 730px) {
