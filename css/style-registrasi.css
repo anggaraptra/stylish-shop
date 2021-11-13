@@ -107,10 +107,6 @@ form .registrasi-form .title:before {
   width: 20px;
 }
 
-/* form .form-content .input-boxes {
-  margin-top: 30px;
-} */
-
 form .form-content .input-box {
   display: flex;
   align-items: center;
