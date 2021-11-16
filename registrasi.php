@@ -35,6 +35,7 @@ if ( isset($_POST["registrasi"]) ) {
 
     <!-- Bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <link rel="shortcut icon" href="img/logo stylish shop.png">
     <title>Registrasi</title>
 </head>
 <body>
@@ -79,5 +80,7 @@ if ( isset($_POST["registrasi"]) ) {
             </div>
         </form>
     </div>
+    <!-- JavaScript Bootstrap -->
+    <script src="asset/bootstrap-5.1.2-dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

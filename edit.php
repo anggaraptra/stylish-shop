@@ -14,17 +14,17 @@ $id = $_GET['id'];
 // query data produk berdasarkan id
 $produk = query("SELECT * FROM produk WHERE id = $id")[0];
 
-// cek apakah tombol submit ubah sudah ditekan
-if ( isset($_POST["submit-ubah"]) ) {
-    // cek apakah data berhasil di ubah
-    if ( ubah($_POST) > 0 ) {
+// cek apakah tombol submit edit sudah ditekan
+if ( isset($_POST["submit-edit"]) ) {
+    // cek apakah data berhasil di edit
+    if ( edit($_POST) > 0 ) {
       echo "<script>
-        alert('Data Berhasil Di Ubah!');
+        alert('Data Berhasil Di Edit!');
         document.location.href = 'useradmin.php';
       </script>";
     } else {
       echo "<script>
-        alert('Data Gagal Di Ubah!');
+        alert('Data Gagal Di Edit!');
         document.location.href = 'useradmin.php';
       </script>";
     }
@@ -37,14 +37,15 @@ if ( isset($_POST["submit-ubah"]) ) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- My CSS -->
-    <link rel="stylesheet" href="css/style-ubah.css">
+    <link rel="stylesheet" href="css/style-edit.css">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="asset/bootstrap-5.1.2-dist/css/bootstrap.min.css" />
 
     <!-- Bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
-    <title>Ubah Produk</title>
+    <link rel="shortcut icon" href="img/logo stylish shop.png">
+    <title>Edit Produk</title>
 </head>
 <body>
     <!-- Navbar -->
@@ -58,7 +59,7 @@ if ( isset($_POST["submit-ubah"]) ) {
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active me-5" aria-current="page">EDIT PRODUK</a>
+              <a class="nav-link active me-5" aria-current="page">Edit Produk</a>
             </li>
           </ul>
           <div class="tombol">
@@ -111,7 +112,7 @@ if ( isset($_POST["submit-ubah"]) ) {
           <tr>
             <td></td>
             <td></td>
-            <td><button type="submit" name="submit-ubah" class="btn btn-secondary mt-1">Edit</button></td>
+            <td><button type="submit" name="submit-edit" class="btn btn-secondary mt-1">Edit</button></td>
           </tr>
       </table>
     </form>

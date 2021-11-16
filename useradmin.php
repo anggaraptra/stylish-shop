@@ -62,7 +62,8 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
 
     <!-- Bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
-    <title>User</title>
+    <link rel="shortcut icon" href="img/logo stylish shop.png">
+    <title>User Admin</title>
 </head>
 <body id="home">
     <!-- Navbar -->
@@ -76,7 +77,7 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active me-5" aria-current="page" href="#home">ADMIN</a>
+              <a class="nav-link active me-5" aria-current="page" href="#home">Admin</a>
             </li>
           </ul>
           <div class="tombol">
@@ -178,7 +179,7 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
             <td><?= $pesan["email"]; ?></td>
             <td><?= $pesan["alamat_lengkap"]; ?></td>
             <td><?= $pesan["total_pesanan"]; ?></td>
-            <td><a class="btn btn-danger" href="functions/hapus_pesan.php?id=<?= $pesan["id"]; ?>" onclick="return confirm('Hapus Pesanan?');">Hapus</a></td>
+            <td><a class="btn btn-danger" href="functions/hapus-pesan.php?id=<?= $pesan["id"]; ?>" onclick="return confirm('Hapus Pesanan?');">Hapus</a></td>
           </tr>
           <?php $i++ ?>
           <?php endforeach; ?>
@@ -209,7 +210,7 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
     <!-- Halaman Produk -->
     <section id="produk">
       <div class="produk container-fluid row text-center mx-auto p-5">
-        <h2>PRODUK ADMIN</h2>
+        <h2>PRODUK</h2>
         <?php foreach ( $produk as $row ) : ?>
         <div class="container-fluid card mb-4" style="width: 16rem">
           <img src="img-produk/<?= $row["gambar"]; ?>" class="img-fluid card-img-top" alt=""/>
@@ -219,7 +220,7 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
             <p class="card-text fw-bold">RP. <?= $row["harga"]; ?></p>
             <a href="detail.php?id=<?= $row["id"]; ?>" class="btn btn-warning">Detail</a>
             <a href="edit.php?id=<?= $row["id"]; ?>" class="btn btn-secondary">Edit</a>
-            <a href="functions/hapus_produk.php?id=<?= $row["id"]; ?>" onclick="return confirm('Yakin Ingin Hapus Produk?');" class="btn btn-danger mt-1">Hapus</a>
+            <a href="functions/hapus-produk.php?id=<?= $row["id"]; ?>" onclick="return confirm('Yakin Ingin Hapus Produk?');" class="btn btn-danger mt-1">Hapus</a>
           </div>
         </div>
         <?php endforeach; ?> 

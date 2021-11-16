@@ -32,37 +32,40 @@ if ( isset($_POST["submit-cari"]) ) {
 
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/logo stylish shop.png">
     <title>Stylish Shop</title>
   </head>
   <body>
   <!-- Navbar -->
     <nav class="navbar navbar-expand-lg shadow-sm navbar-dark fixed-top bg-primary">
       <div class="container-fluid">
-        <img src="img/logo stylish shop.png" class="img-fluid" width="50" height="50" alt="">
-        <a class="navbar-brand fw-bold mt-1 ms-1" href="">STYLISH SHOP</a>
+        <a href="">
+          <img src="img/logo stylish shop.png" class="img-fluid" width="50" height="50" alt="">
+          <a href="" class="navbar-brand fw-bold mt-1 ms-1">STYLISH SHOP</a>
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#beranda">BERANDA</a>
+              <a class="nav-link" aria-current="page" href="#beranda">Beranda</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#produk">PRODUK</a>
+              <a class="nav-link" aria-current="page" href="#produk">Produk</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="" data-bs-target="#kontak" data-bs-toggle="modal">KONTAK</a>
+              <a class="nav-link" aria-current="page" href="" data-bs-target="#kontak" data-bs-toggle="modal">Kontak</a>
             </li>
           </ul>
           <form class="cari d-flex" action="" method="post">
-            <input class="form-control me-1" type="search" name="keyword" placeholder="Cari produk..." aria-label="Search" size="30" autofocus/>
+            <input class="form-control me-1" type="search" name="keyword" placeholder="Cari Produk..." aria-label="Search" size="30" autofocus/>
             <button class="btn btn-outline-light" type="submit" name="submit-cari"><i class="bi bi-search"></i></button>
           </form>
           <div class="tombol">
             <ul class="navbar-nav mt-1">
               <li class="nav-item">
-                <a class="btn nav-link" href="login.php"><h6 class="bi bi-person-fill" data-bs-toggle="tooltip" title="Akun"></h6></a>
+                <a class="btn nav-link" href="login.php"><h6 class="bi bi-person-fill" data-bs-toggle="tooltip" title="Akun Admin"></h6></a>
               </li>
             </ul>
           </div>
@@ -156,12 +159,11 @@ if ( isset($_POST["submit-cari"]) ) {
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title fw-bold">KONTAK KAMI</h5>
+            <h5 class="modal-title fw-bold ms-auto">Kontak Kami</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
           <div class="container-fluid">
-            <!-- <h2 class="text-center fw-bold">KONTAK KAMI</h2> -->
               <div class="row justify-content-center">
                 <div class="col-md-6">
 

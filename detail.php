@@ -23,6 +23,7 @@ $produk = query("SELECT * FROM produk WHERE id = $id")[0];
 
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/logo stylish shop.png">
     <title>Detail Produk</title>
 </head>
 <body>
@@ -37,7 +38,7 @@ $produk = query("SELECT * FROM produk WHERE id = $id")[0];
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active me-5" aria-current="page">DETAIL PRODUK</a>
+              <a class="nav-link active me-5" aria-current="page">Detail Produk</a>
             </li>
           </ul>
           <div class="tombol">

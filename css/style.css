@@ -1,9 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Praise&display=swap");
 
 * {
   padding: 0;
   margin: 0;
-  font-family: "Mulish", sans-serif;
+  font-family: "Mulish";
+}
+
+.container-fluid .navbar-brand {
+  font-family: "praise";
 }
 
 .carousel {

@@ -24,6 +24,7 @@ if ( isset($_POST["submit-pesanan"]) ) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/logo stylish shop.png">
     <title>Pesan Produk</title>
 
     <!-- My CSS -->
@@ -47,7 +48,7 @@ if ( isset($_POST["submit-pesanan"]) ) {
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active me-5" aria-current="page" >PESAN PRODUK</a>
+              <a class="nav-link active me-5" aria-current="page" >Pesan Produk</a>
             </li>
           </ul>
           <div class="tombol">

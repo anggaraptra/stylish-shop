@@ -93,7 +93,7 @@ function hapus($id) {
 }
 
 // Fungsi untuk mengubah data dalam database
-function ubah($data) {
+function edit($data) {
     global $koneksi; 
 
     $id = $data["id"];

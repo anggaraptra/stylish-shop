@@ -70,6 +70,7 @@ if ( isset($_POST['login']) ) {
 
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/logo stylish shop.png">
     <title>Login</title>
 </head>
 <body>
