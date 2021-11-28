@@ -10,7 +10,7 @@ require 'functions/functions.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,26 +22,49 @@ require 'functions/functions.php';
 
     <!-- Bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+
+    <!-- ico icon -->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="ico/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="ico/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="ico/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="ico/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="ico/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="ico/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="ico/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="ico/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="ico/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="ico/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="&nbsp;"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
     <title>Keranjang</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg shadow-sm navbar-dark fixed-top bg-primary">
       <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="index.php">STYLISH SHOP</a>
+        <a href="index.php"><img src="img/logo stylish shop.png" class="img-fluid" width="50" height="50" alt=""></a>
+        <a class="navbar-brand fw-bold mt-1 ms-1" href="index.php">STYLISH SHOP</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active me-5" aria-current="page" >KERANJANG</a>
+              <a class="nav-link active me-5" aria-current="page" >Keranjang</a>
             </li>
           </ul>
           <div class="tombol">
             <ul class="navbar-nav mt-1">
               <li class="nav-item">
-                <a class="btn nav-link ms-5 me-5" href="user.php"><h6 class="bi bi-person-fill" data-bs-toggle="tooltip" title="User"></h6></a>
+                <a class="btn nav-link ms-5 me-5" href="useradmin.php"><h6 class="bi bi-person-fill" data-bs-toggle="tooltip" title="User"></h6></a>
               </li>
             </ul>
           </div>
@@ -57,9 +80,10 @@ require 'functions/functions.php';
         <div class="container-fluid card mr-2 ml-2 mb-3" style="width: 16rem">
           <img width="160" height="160" src="img-produk/" class="container-fluid card-img-top" alt=""/>
           <div class="card-body">
-            <h5 class="card-title"><strong>Card</strong></h5>
+            <h5 class="card-title fw-bold">Card Title</h5>
             <p class="card-text">Card body</p>
-            <a href="" class="btn btn-primary">Detail</a>
+            <p class="card-text fw-bold">RP. </p>
+            <a href="" class="btn btn-warning">Detail</a>
             <a href="" class="btn btn-success">Beli</a>
           </div>
         </div>
@@ -83,21 +107,39 @@ require 'functions/functions.php';
             <i class="bi bi-whatsapp"> 087854712611 </i>
             <a href="https://www.instagram.com/anggara.ptra/" target="_blank"><i class="bi bi-instagram"> anggara.ptra </i></a>
             <a href="https://www.facebook.com/ikadekanggaraputra.ikadekanggaraputra/" target="_blank"><i class="bi bi-facebook">  AnggaraPutra </i></a>
-            <i class="bi bi-telephone-fill"> 089680897900 </i>
+            <a href="http://localhost/sepintasgame/" target="_blank"><img src="img/logo sepintas.png" width="18" height="18" class="img-fluid"> Sepintas Game</a>
           </div>
         </div>
         <div class="col-md-4">
           <h6><strong>TENTANG KAMI</strong></h6>
-          <p>Olshop ini adalah toko yang khusus menjual style untuk pria seperti baju, celana, sepatu dan style berpakaian yang kekinian</p>
+          <p>Olshop ini adalah toko yang khusus menjual style untuk pria maupun untuk wanita seperti baju, celana, sepatu dan style berpakaian yang kekinian.</p>
         </div>
       </div>
     </footer>
     <div class="copyright text-center text-white bg-primary p-3">
       <p>Developed by Anggara | Copyright @2021</p>
     </div>
-    <!-- Akhir Footer-->
+    <!-- Akhir Footer -->
+
+    <!-- Vanilla Tilt -->
+    <script src="js/vanilla-tilt.js"></script>
+    <script>
+      function myFunction(x) {
+        if (x.matches) {
+          VanillaTilt.init(document.querySelectorAll(".card"), {
+            max: 6,
+            scale: 1.02,
+          });
+        } else {
+        }
+      }
+
+      let x = window.matchMedia("(min-width: 1050px)");
+      myFunction(x);
+      x.addListener(myFunction);
+    </script>
 
     <!-- JavaScript Bootstrap -->
     <script src="asset/bootstrap-5.1.2-dist/js/bootstrap.bundle.min.js"></script>    
-</body>
+  </body>
 </html>

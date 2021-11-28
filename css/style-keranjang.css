@@ -1,21 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Praise&display=swap");
 
 * {
   font-family: "Mulish", sans-serif;
+}
+
+.container-fluid .navbar-brand {
+  font-family: "praise";
 }
 
 .collapse ul {
   margin: 0 auto;
 }
 
-.card p {
+.card-title {
   margin-top: -10px;
-  margin-bottom: 1px;
+}
+
+.card p {
+  font-size: 15px;
+  margin-top: -7px;
+  margin-bottom: 4px;
 }
 
 .row .card:hover {
-  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
-  transform: scale(1.01);
+  box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.4);
 }
 
 .sosmed a {
@@ -30,5 +39,12 @@
 @media screen and (max-width: 950px) {
   footer .sosmed {
     margin-bottom: 15px;
+  }
+  .container-fluid .navbar-brand {
+    margin: 0 auto;
+  }
+  .row .card:hover {
+    box-shadow: 3px 8px 8px rgba(0, 0, 0, 0.4);
+    transform: scale(1.02);
   }
 }
