@@ -19,12 +19,12 @@ if ( isset($_POST["submit-edit"]) ) {
     // cek apakah data berhasil di edit
     if ( edit($_POST) > 0 ) {
       echo "<script>
-        alert('Data Berhasil Di Edit!');
+        alert('Data berhasil diedit!');
         document.location.href = 'useradmin.php';
       </script>";
     } else {
       echo "<script>
-        alert('Data Gagal Di Edit!');
+        alert('Data gagal diedit!');
         document.location.href = 'useradmin.php';
       </script>";
     }
@@ -32,7 +32,7 @@ if ( isset($_POST["submit-edit"]) ) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,8 +67,8 @@ if ( isset($_POST["submit-edit"]) ) {
     <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
     <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
     <title>Edit Produk</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg shadow-sm navbar-dark fixed-top bg-primary">
       <div class="container-fluid">
@@ -173,5 +173,5 @@ if ( isset($_POST["submit-edit"]) ) {
 
     <!-- Javascript Bootstrap -->
     <script src="asset/bootstrap-5.1.2-dist/js/bootstrap.bundle.min.js"></script>
-</body>
+  </body>
 </html>

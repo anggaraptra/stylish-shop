@@ -74,7 +74,6 @@ require 'functions/functions.php';
     <!-- Akhir Navbar -->
 
     <!-- Halaman Keranjang -->
-    <!-- Halaman Produk -->
     <section>
     <div class="produk container-fluid row text-center p-5 mx-auto mb-3 mt-5">
         <div class="container-fluid card mr-2 ml-2 mb-3" style="width: 16rem">
@@ -89,6 +88,7 @@ require 'functions/functions.php';
         </div>
       </div>
     </section>
+    <!-- Akhir Halaman Keranjang -->
 
     <!-- Footer -->
     <footer class="container-fluid bg-primary text-white p-3">

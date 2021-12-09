@@ -50,7 +50,7 @@ function upload() {
     // cek apakah tidak ada gambar yang di upload
     if ( $error === 4 ) {
         echo "<script>
-            alert('Pilih Gambar!');
+            alert('Pilih gambar!');
         </script>";
         return false;
     }
@@ -61,7 +61,7 @@ function upload() {
     $ekstensi_gambar = strtolower(end($ekstensi_gambar));
     if ( !in_array($ekstensi_gambar, $ekstensi_gambar_valid) ) {
         echo "<script>
-            alert('Yang Anda Upload Bukan Gambar!');
+            alert('Yang anda upload bukan gambar!');
         </script>";
         return false;
     }
@@ -69,7 +69,7 @@ function upload() {
     // cek jika ukuran gambar terlalu besar
     if ( $ukuran_file > 2000000 ) {
         echo "<script>
-            alert('Ukuran Gambar Terlalu Besar!');
+            alert('Ukuran gambar terlalu besar!');
         </script>";
         return false;
     }
@@ -82,14 +82,6 @@ function upload() {
 
     move_uploaded_file($tmp_name, 'img-produk/' . $nama_file_baru);
     return $nama_file_baru;
-}
-
-// Fungsi menghapus produk dari database
-function hapus($id) {
-    global $koneksi;
-    mysqli_query($koneksi, "DELETE FROM produk WHERE id = $id");
-
-    return mysqli_affected_rows($koneksi);
 }
 
 // Fungsi untuk mengubah data dalam database
@@ -148,7 +140,7 @@ function registrasi($data) {
 
     if ( mysqli_fetch_assoc($result) ) {
         echo "<script>
-            alert('Username Sudah Tersedia!');
+            alert('Username sudah tersedia!');
         </script>";
     return false;
     }
@@ -156,7 +148,7 @@ function registrasi($data) {
     // cek konfirmasi password
     if ( $password !== $password2 ) {
         echo "<script>
-            alert('Konfirmasi Password Tidak Sesuai!');
+            alert('Konfirmasi password tidak sesuai!');
         </script>";
     return false;
     }
@@ -191,11 +183,19 @@ function pesanan($data) {
     return mysqli_affected_rows($koneksi);
 }
 
-// Fungsi umtuk menghapus pesanan
-function hapusPesanan($id) {
-    global $koneksi;
-    mysqli_query($koneksi, "DELETE FROM pesanan WHERE id = $id");
+// Fungsi menghapus produk dari database
+// function hapus($id) {
+//     global $koneksi;
+//     mysqli_query($koneksi, "DELETE FROM produk WHERE id = $id");
 
-    return mysqli_affected_rows($koneksi);
-}
+//     return mysqli_affected_rows($koneksi);
+// }
+
+// Fungsi umtuk menghapus pesanan
+// function hapusPesanan($id) {
+//     global $koneksi;
+//     mysqli_query($koneksi, "DELETE FROM pesanan WHERE id = $id");
+
+//     return mysqli_affected_rows($koneksi);
+// }
 ?>

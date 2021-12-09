@@ -19,12 +19,12 @@ if ( isset($_POST["submit-tambah"]) ) {
   // cek apakah data berhasil di tambahkan
   if ( tambah($_POST) > 0 ) {
     echo "<script>
-      alert('Data Berhasil Di Tambah!');
+      alert('Produk baru berhasil ditambahkan!');
       document.location.href = 'useradmin.php';
     </script>";
   } else {
     echo "<script>
-      alert('Data Gagal Di Tambah!');
+      alert('Produk gagal ditambahkan!');
       document.location.href = 'useradmin.php';
     </script>";
   }
@@ -50,7 +50,7 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -85,8 +85,8 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
     <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
     <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
     <title>User Admin</title>
-</head>
-<body id="home">
+  </head>
+  <body id="home">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg shadow-sm navbar-dark fixed-top bg-primary">
       <div class="container-fluid">
@@ -116,10 +116,9 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
     <!-- Halaman User -->
     <section class="container-fluid p-5" id="tambah">
     <div class="row">
-      <div class="col-md-1"></div>
 
       <!-- User -->
-      <div class="col-md-5 user">
+      <div class="col-md-6 user">
         <div class="content mt-5">
           <h2 class="fw-bold head-user">USER ADMIN</h2>
           <?php foreach ($user as $usr) : ?>
@@ -130,44 +129,43 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
       </div>
 
       <!-- Tambah Produk -->
-      <div class="col-md-5">
+      <div class="col-md-6">
         <h2 class="mt-5 fw-bold head-tambah text-center">TAMBAH PRODUK</h2>
         <form action="" method="post" enctype="multipart/form-data">
           <table>
-              <tr>
-                <td><label for="nama-produk" class="form-label">Nama Produk</label></td>
-                <td></td>
-                <td><input type="text" name="nama" id="nama-produk" class="form-control" required></td>
-              </tr>
-              <tr>
-                <td><label for="stok-produk" class="form-label">Stok Produk</label></td>
-                <td></td>
-                <td><input type="number" name="stok" id="stok-produk" class="form-control" required></td>
-              </tr>
-              <tr>
-                <td><label for="harga-produk" class="form-label">Harga Produk</label></td>
-                <td></td>
-                <td><input type="number" name="harga" placeholder="RP." id="harga-produk" class="form-control" required></td>
-              </tr>
-              <tr>
-                <td><label for="deskripsi-produk" class="form-label">Deskripsi Produk</label></td>
-                <td></td>
-                <td><textarea placeholder="Deskripsi produk" rows="2" id="deskripsi-produk" class="form-control" name="deskripsi" required></textarea></td>
-              </tr>
-              <tr>
-                <td><label for="gambar-produk" class="form-label">Gambar Produk</label></td>
-                <td></td>
-                <td><input type="file" name="gambar" id="gambar-produk" class="form-control"></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td><button type="submit" name="submit-tambah" class="btn btn-primary mt-1">Tambah</button></td>
-              </tr>
+            <tr>
+              <td><label for="nama-produk" class="form-label">Nama Produk</label></td>
+              <td></td>
+              <td><input type="text" name="nama" id="nama-produk" class="form-control" required></td>
+            </tr>
+            <tr>
+              <td><label for="stok-produk" class="form-label">Stok Produk</label></td>
+              <td></td>
+              <td><input type="number" name="stok" id="stok-produk" class="form-control" required></td>
+            </tr>
+            <tr>
+              <td><label for="harga-produk" class="form-label">Harga Produk</label></td>
+              <td></td>
+              <td><input type="number" name="harga" placeholder="RP." id="harga-produk" class="form-control" required></td>
+            </tr>
+            <tr>
+              <td><label for="deskripsi-produk" class="form-label">Deskripsi Produk</label></td>
+              <td></td>
+              <td><textarea placeholder="Deskripsi produk" rows="2" id="deskripsi-produk" class="form-control" name="deskripsi" required></textarea></td>
+            </tr>
+            <tr>
+              <td><label for="gambar-produk" class="form-label">Gambar Produk</label></td>
+              <td></td>
+              <td><input type="file" name="gambar" id="gambar-produk" class="form-control"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td><button type="submit" name="submit-tambah" class="btn btn-primary mt-1">Tambah</button></td>
+            </tr>
           </table>
         </form>
       </div>
-      <div class="col-md-1"></div>
     </div>
     </section>
     <!-- Akhir Halaman User -->
@@ -177,40 +175,40 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
       <div class="container-fluid text-center">
         <h2>PESANAN</h2>
         <div class="table-responsive">
-        <table border="1" class="table table-striped table-hover mt-4">
-          <tr>
-            <th>No</th>
-            <th>Nama Produk</th>
-            <th>Harga</th>
-            <th>Nama Pemesan</th>
-            <th>No Hp</th>
-            <th>Email</th>
-            <th>Alamat Lengkap</th>
-            <th>Total Pesanan</th>
-            <th></th>
-          </tr>
-          <?php $i = 1; ?>
-          <?php foreach ($pesanan as $pesan) : ?>
-          <tr>
-            <td><?= $i + $dataAwal; ?></td>
-            <td><?= $pesan["nama_produk"]; ?></td>
-            <td><?= $pesan["harga"]; ?></td>
-            <td><?= $pesan["nama_pemesan"]; ?></td>
-            <td><?= $pesan["no_hp"]; ?></td>
-            <td><?= $pesan["email"]; ?></td>
-            <td><?= $pesan["alamat_lengkap"]; ?></td>
-            <td><?= $pesan["total_pesanan"]; ?></td>
-            <td><a class="btn btn-danger" href="functions/hapus-pesan.php?id=<?= $pesan["id"]; ?>" onclick="return confirm('Hapus Pesanan?');">Hapus</a></td>
-          </tr>
-          <?php $i++ ?>
-          <?php endforeach; ?>
-        </table>
+          <table border="1" class="table table-striped table-hover mt-4">
+            <tr>
+              <th>No</th>
+              <th>Nama Produk</th>
+              <th>Harga</th>
+              <th>Nama Pemesan</th>
+              <th>No Hp</th>
+              <th>Email</th>
+              <th>Alamat Lengkap</th>
+              <th>Total Pesanan</th>
+              <th></th>
+            </tr>
+            <?php $i = 1; ?>
+            <?php foreach ($pesanan as $pesan) : ?>
+            <tr>
+              <td><?= $i + $dataAwal; ?></td>
+              <td><?= $pesan["nama_produk"]; ?></td>
+              <td><?= $pesan["harga"]; ?></td>
+              <td><?= $pesan["nama_pemesan"]; ?></td>
+              <td><?= $pesan["no_hp"]; ?></td>
+              <td><?= $pesan["email"]; ?></td>
+              <td><?= $pesan["alamat_lengkap"]; ?></td>
+              <td><?= $pesan["total_pesanan"]; ?></td>
+              <td><a class="btn btn-danger del-pesanan" href="functions/hapus-pesan.php?id=<?= $pesan["id"]; ?>">Hapus</a></td>
+            </tr>
+            <?php $i++ ?>
+            <?php endforeach; ?>
+          </table>
         </div>
         <!-- Navigasi halaman daftar pesanan -->
         <div class="halaman container-fluid text-center mt-1 mb-5">
-        <?php if( $halamanAktif !=1 ) : ?>
-          <a href="?hal=<?= $halamanAktif - 1; ?>">&laquo;</a>
-        <?php endif; ?>
+          <?php if( $halamanAktif !=1 ) : ?>
+            <a href="?hal=<?= $halamanAktif - 1; ?>">&laquo;</a>
+          <?php endif; ?>
 
           <?php for( $j = 1; $j <= $jumlahHalaman; $j++ ) : ?>
             <?php if( $j == $halamanAktif ) : ?>
@@ -220,10 +218,10 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
             <?php endif; ?>
           <?php endfor; ?>
 
-        <?php if( $halamanAktif !=$jumlahHalaman ) : ?>
-          <a href="?hal=<?= $halamanAktif + 1; ?>">&raquo;</a>
-        <?php endif; ?>
-      </div>  
+          <?php if( $halamanAktif !=$jumlahHalaman ) : ?>
+            <a href="?hal=<?= $halamanAktif + 1; ?>">&raquo;</a>
+          <?php endif; ?>
+        </div>  
       </div>
     </section>
     <!-- Akhir Daftar Pesanan -->
@@ -241,7 +239,7 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
             <p class="card-text fw-bold">RP. <?= $row["harga"]; ?></p>
             <a href="detail.php?id=<?= $row["id"]; ?>" class="btn btn-warning">Detail</a>
             <a href="edit.php?id=<?= $row["id"]; ?>" class="btn btn-secondary">Edit</a>
-            <a href="functions/hapus-produk.php?id=<?= $row["id"]; ?>" onclick="return confirm('Yakin Ingin Hapus Produk?');" class="btn btn-danger mt-1">Hapus</a>
+            <a href="functions/hapus-produk.php?id=<?= $row["id"]; ?>" class="btn btn-danger mt-1 del-produk">Hapus</a>
           </div>
         </div>
         <?php endforeach; ?> 
@@ -265,32 +263,39 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
         <?php endif; ?>
       </div>  
     </section>
+    <!-- Akhir Halaman Produk -->
+
+    <!-- Alert Hapus -->
+    <?php if (isset($_GET['a'])) : ?>
+      <div class="flash-data" data-flashdata="<?= $_GET['a']; ?>"></div>
+    <?php endif; ?>
+    <!-- Akhir Alert Hapus -->
 
     <!-- Footer -->
-      <footer class="container-fluid bg-primary text-white p-3">
-      <div class="row mt-4">
-        <div class="col-md-4">
-          <h6><strong>LAYANAN</strong></h6>
-          <ul>
-            <li>Pusat Bantuan</li>
-            <li>Cara Pembelian</li>
-            <li>Pengembalian Jika Tidak Sesuai</li>
-          </ul>
-        </div>
-        <div class="sosmed col-md-4">
-          <h6><strong>SOSIAL MEDIA DAN LAINNYA</strong></h6>
-          <div class="icons d-grid">
-            <i class="bi bi-whatsapp"> 087854712611 </i>
-            <a href="https://www.instagram.com/anggara.ptra/" target="_blank"><i class="bi bi-instagram"> anggara.ptra </i></a>
-            <a href="https://www.facebook.com/ikadekanggaraputra.ikadekanggaraputra/" target="_blank"><i class="bi bi-facebook">  AnggaraPutra </i></a>
-            <a href="http://localhost/sepintasgame/" target="_blank"><img src="img/logo sepintas.png" width="18" height="18" class="img-fluid"> Sepintas Game</a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <h6><strong>TENTANG KAMI</strong></h6>
-          <p>Olshop ini adalah toko yang khusus menjual style untuk pria maupun untuk wanita seperti baju, celana, sepatu dan style berpakaian yang kekinian.</p>
+    <footer class="container-fluid bg-primary text-white p-3">
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <h6><strong>LAYANAN</strong></h6>
+        <ul>
+          <li>Pusat Bantuan</li>
+          <li>Cara Pembelian</li>
+          <li>Pengembalian Jika Tidak Sesuai</li>
+        </ul>
+      </div>
+      <div class="sosmed col-md-4">
+        <h6><strong>SOSIAL MEDIA DAN LAINNYA</strong></h6>
+        <div class="icons d-grid">
+          <i class="bi bi-whatsapp"> 087854712611 </i>
+          <a href="https://www.instagram.com/anggara.ptra/" target="_blank"><i class="bi bi-instagram"> anggara.ptra </i></a>
+          <a href="https://www.facebook.com/ikadekanggaraputra.ikadekanggaraputra/" target="_blank"><i class="bi bi-facebook">  AnggaraPutra </i></a>
+          <a href="http://localhost/sepintasgame/" target="_blank"><img src="img/logo sepintas.png" width="18" height="18" class="img-fluid"> Sepintas Game</a>
         </div>
       </div>
+      <div class="col-md-4">
+        <h6><strong>TENTANG KAMI</strong></h6>
+        <p>Olshop ini adalah toko yang khusus menjual style untuk pria maupun untuk wanita seperti baju, celana, sepatu dan style berpakaian yang kekinian.</p>
+      </div>
+    </div>
     </footer>
     <div class="copyright text-center text-white bg-primary p-3">
       <p>Developed by Anggara | Copyright @2021</p>
@@ -317,5 +322,59 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
 
     <!-- JavaScript Bootstrap -->
     <script src="asset/bootstrap-5.1.2-dist/js/bootstrap.bundle.min.js"></script>
-</body>
+
+    <!-- Sweetalert -->
+    <script src="js/alert/sweetalert2.all.min.js"></script>
+
+    <!-- JQuery -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+      $(".del-pesanan").on("click", function(e) {
+        e.preventDefault();
+        const href = $(this).attr("href")
+
+        Swal.fire({
+          title: 'Yakin?',
+          text: "Ingin menghapus pesanan ini!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#0d6efd',
+          cancelButtonColor: '#dc3545',
+          confirmButtonText: 'Hapus!'
+        }).then((result) => {
+          if (result.value) {
+            document.location.href= href;
+          }
+        })
+      })
+
+      $(".del-produk").on("click", function(e) {
+        e.preventDefault();
+        const href = $(this).attr("href")
+
+        Swal.fire({
+          title: 'Yakin?',
+          text: "Ingin menghapus produk ini!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#0d6efd',
+          cancelButtonColor: '#dc3545',
+          confirmButtonText: 'Hapus!'
+        }).then((result) => {
+          if (result.value) {
+            document.location.href= href;
+          }
+        })
+      })
+
+      const flashdata = $(".flash-data").data("flashdata");
+      if (flashdata) {
+        Swal.fire({
+          title: 'Berhasil!',
+          text: 'Berhasil di hapus!',
+          icon: 'success'
+        })
+      }
+    </script>
+  </body>
 </html>

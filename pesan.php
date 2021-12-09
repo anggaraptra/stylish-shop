@@ -7,12 +7,12 @@ $produk = query("SELECT * FROM produk WHERE id = $id")[0];
 if ( isset($_POST["submit-pesanan"]) ) {
     if ( pesanan($_POST) > 0 ) {
         echo "<script>
-          alert('Pesanan Segera Di Proses! Silahkan Ditunggu');
+          alert('Pesanan segera diproses! Silahkan ditunggu');
           document.location.href= 'index.php';
         </script>"; 
     } else {
         echo "<script>
-          alert('Pesanan Gagal! Silahkan Pesan Lagi');
+          alert('Pesanan gagal! Silahkan dipesan lagi');
           document.location.href= 'pesan.php';
         </script>";
     }
@@ -20,7 +20,7 @@ if ( isset($_POST["submit-pesanan"]) ) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,8 +55,8 @@ if ( isset($_POST["submit-pesanan"]) ) {
     <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
     <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
     <title>Pesan Produk</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg shadow-sm navbar-dark fixed-top bg-primary">
         <div class="container-fluid">
@@ -171,5 +171,5 @@ if ( isset($_POST["submit-pesanan"]) ) {
 
     <!-- JavaScript Bootstrap -->
     <script src="asset/bootstrap-5.1.2-dist/js/bootstrap.bundle.min.js"></script>
-</body>
+  </body>
 </html>

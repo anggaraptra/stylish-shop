@@ -57,7 +57,7 @@ if ( isset($_POST["submit-cari"]) ) {
     <title>Stylish Shop</title>
   </head>
   <body>
-  <!-- Navbar -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg shadow-sm navbar-dark fixed-top bg-primary">
       <div class="container-fluid">
         <a href="">
@@ -93,9 +93,9 @@ if ( isset($_POST["submit-cari"]) ) {
         </div>
       </div>
     </nav>
-  <!-- Akhir Navbar -->
+    <!-- Akhir Navbar -->
 
-  <!-- Carousel -->
+    <!-- Carousel -->
     <section id="beranda" class="p-4">
       <div class="carousel shadow-sm">
         <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -134,9 +134,9 @@ if ( isset($_POST["submit-cari"]) ) {
         </div>
       </div>
     </section>
-  <!-- Akhir Carousel  -->
+    <!-- Akhir Carousel  -->
 
-  <!-- Halaman Produk -->
+    <!-- Halaman Produk -->
     <section id="produk">
       <h2 data-aos="zoom-in" data-aos-duration="600" data-aos-delay="600">PRODUK TERBARU</h2>
       <div class="produk container-fluid row text-center mx-auto p-5">
@@ -155,7 +155,6 @@ if ( isset($_POST["submit-cari"]) ) {
     </div>
     <!-- Navigasi Halaman -->
     <div class="halaman container-fluid text-center mb-5">
-
       <?php if( $halaman_aktif !=1 ) : ?>
         <a href="?halaman=<?= $halaman_aktif - 1; ?>">&laquo;</a>
       <?php endif; ?>
@@ -171,32 +170,32 @@ if ( isset($_POST["submit-cari"]) ) {
       <?php if( $halaman_aktif !=$jumlah_halaman ) : ?>
         <a href="?halaman=<?= $halaman_aktif + 1; ?>">&raquo;</a>
       <?php endif; ?>
-
     </div>
     </section>
+    <!-- Akhir Halaman Produk -->
 
-  <!-- Alert Kontak -->
-  <div class="modal fade" id="kontak" tabindex="-1"   aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal Kontak -->
+    <div class="modal fade" id="kontak" tabindex="-1"   aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title fw-bold ms-auto">Kontak Kami</h5>
+            <h5 class="modal-title fw-bold">Kontak Kami</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-          <div class="container-fluid">
+            <div class="container-fluid">
               <div class="row justify-content-center">
                 <div class="col-md-6">
 
                   <!-- bagian alert  -->
                   <div class="alert alert-info alert-dismissible fade show d-none my-alert" role="alert">
-                     <strong>Terima Kasih <i class="bi bi-heart-fill"></i></strong> Pesan Anda Sudah Kami Terima!
+                    <strong>Terima Kasih <i class="bi bi-heart-fill"></i></strong> Pesan anda sudah kami terima!
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                   </div>
 
                   <!-- form kontak -->
                   <form action="" name="stylishshop-kontak" id="formKontak" method="">
-                     <div class="mb-1">
+                    <div class="mb-1">
                       <label for="name" class="form-label">Nama</label>
                       <input name="nama" type="text" placeholder="Nama anda" class="form-control" id="nama" required />
                     </div>
@@ -205,8 +204,8 @@ if ( isset($_POST["submit-cari"]) ) {
                       <input name="email" type="email" placeholder="Email anda" class="form-control" id="email"/>
                     </div>
                     <div class="mb-3">
-                       <label for="pesan" class="form-label">Pesan</label>
-                       <textarea name="pesan" placeholder="Pesan anda" class="form-control" rows="3" id="pesan" required></textarea>
+                      <label for="pesan" class="form-label">Pesan</label>
+                      <textarea name="pesan" placeholder="Pesan anda" class="form-control" rows="3" id="pesan" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary btn-kirim" id="submit">Kirim</button>
                     <button class="btn btn-primary btn-loading d-none" type="button" disabled>
@@ -218,14 +217,13 @@ if ( isset($_POST["submit-cari"]) ) {
               </div>
             </div>
           </div>
-          <div class="modal-footer mb-4">
-          </div>
+          <div class="modal-footer mb-4"></div>
         </div>
       </div>
     </div>
-  <!-- Akhir Alert Kontak -->
+    <!-- Akhir Modal Kontak -->
 
-  <!-- Footer -->
+    <!-- Footer -->
     <footer class="container-fluid bg-primary text-white p-3">
       <div class="row mt-4">
         <div class="col-md-4">
@@ -254,7 +252,7 @@ if ( isset($_POST["submit-cari"]) ) {
     <div class="copyright text-center text-white bg-primary p-3">
       <p>Developed by Anggara | Copyright @2021</p>
     </div>
-  <!-- Akhir Footer -->
+    <!-- Akhir Footer -->
 
     <!-- JavaScript Bootstrap -->
     <script src="asset/bootstrap-5.1.2-dist/js/bootstrap.bundle.min.js"></script>

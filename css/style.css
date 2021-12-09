@@ -13,6 +13,11 @@
 
 .carousel {
   margin-top: 65px;
+  border-radius: 10px;
+}
+
+.carousel-item img {
+  border-radius: 10px;
 }
 
 .collapse ul {
@@ -88,6 +93,9 @@
   }
   .container-fluid .navbar-brand {
     margin: 0 auto;
+  }
+  .carousel {
+    margin-top: 60px;
   }
   .row .card:hover {
     box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.4);

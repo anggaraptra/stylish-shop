@@ -1,1 +1,0 @@
-Memperbaiki pagination agar bisa berfungsi saat tombol cari ditekan

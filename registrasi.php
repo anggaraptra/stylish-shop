@@ -12,7 +12,7 @@ if ( isset($_POST["registrasi"]) ) {
 
     if ( registrasi($_POST) > 0 ) {
         echo "<script>
-            alert('User Baru Berhasil Di Tambah!');
+            alert('Admin baru berhasil ditambah!');
             document.location.href = 'login.php';
         </script>";
     } else {

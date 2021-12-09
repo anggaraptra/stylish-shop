@@ -2,13 +2,12 @@
 require 'functions/functions.php';
 
 $id = $_GET['id'];
-
 $produk = query("SELECT * FROM produk WHERE id = $id")[0];
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,8 +45,8 @@ $produk = query("SELECT * FROM produk WHERE id = $id")[0];
     <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
     <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
     <title>Detail Produk</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg shadow-sm navbar-dark fixed-top bg-primary">
       <div class="container-fluid">
@@ -78,12 +77,10 @@ $produk = query("SELECT * FROM produk WHERE id = $id")[0];
     <div class="container-fluid p-5 mt-5">
       <div class="row">
         <div class="col-md-2"></div>
-
         <!-- Gambar Produk -->
         <div class="col-md-4">
             <img src="img-produk/<?= $produk["gambar"]; ?>" width="300" height="300" class="img-fluid" alt="">
         </div>
-
         <!-- Keterangan Produk -->
         <div class="col-md-5 mt-1">
             <table class="table table-borderless table-striped">
