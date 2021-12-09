@@ -58,25 +58,25 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
     <link rel="stylesheet" href="css/style-useradmin.css" />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="asset/bootstrap-5.1.2-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/bootstrap-5.1.2-dist/css/bootstrap.min.css" />
 
     <!-- Bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
 
     <!-- ico icon -->
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="ico/apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114x114.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144x144.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="ico/apple-touch-icon-60x60.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="ico/apple-touch-icon-120x120.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="ico/apple-touch-icon-76x76.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="ico/apple-touch-icon-152x152.png" />
-    <link rel="icon" type="image/png" href="ico/favicon-196x196.png" sizes="196x196" />
-    <link rel="icon" type="image/png" href="ico/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/png" href="ico/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="ico/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="ico/favicon-128.png" sizes="128x128" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/ico/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="assets/ico/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="assets/ico/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="assets/ico/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="assets/ico/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="assets/ico/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="assets/ico/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="assets/ico/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="assets/ico/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="assets/ico/favicon-128.png" sizes="128x128" />
     <meta name="application-name" content="&nbsp;"/>
     <meta name="msapplication-TileColor" content="#FFFFFF" />
     <meta name="msapplication-TileImage" content="mstile-144x144.png" />
@@ -321,10 +321,10 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
     </script>
 
     <!-- JavaScript Bootstrap -->
-    <script src="asset/bootstrap-5.1.2-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/bootstrap-5.1.2-dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Sweetalert -->
-    <script src="js/alert/sweetalert2.all.min.js"></script>
+    <script src="assets/alert/sweetalert2.all.min.js"></script>
 
     <!-- JQuery -->
     <script src="js/jquery-3.6.0.min.js"></script>
