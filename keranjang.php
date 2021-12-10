@@ -92,7 +92,7 @@ require 'functions/functions.php';
 
     <!-- Footer -->
     <footer class="container-fluid bg-primary text-white p-3">
-      <div class="row mt-4">
+      <div class="row mt-3">
         <div class="col-md-4">
           <h6><strong>LAYANAN</strong></h6>
           <ul>
