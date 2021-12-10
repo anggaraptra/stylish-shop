@@ -337,8 +337,8 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
           text: "Ingin menghapus pesanan ini!",
           icon: 'warning',
           showCancelButton: true,
-          confirmButtonColor: '#0d6efd',
-          cancelButtonColor: '#dc3545',
+          confirmButtonColor: '#dc3545',
+          cancelButtonColor: '#0d6efd',
           confirmButtonText: 'Hapus!'
         }).then((result) => {
           if (result.value) {
@@ -356,8 +356,8 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
           text: "Ingin menghapus produk ini!",
           icon: 'warning',
           showCancelButton: true,
-          confirmButtonColor: '#0d6efd',
-          cancelButtonColor: '#dc3545',
+          confirmButtonColor: '#dc3545',
+          cancelButtonColor: '#0d6efd',
           confirmButtonText: 'Hapus!'
         }).then((result) => {
           if (result.value) {
