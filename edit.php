@@ -157,7 +157,6 @@ if ( isset($_POST["submit-edit"]) ) {
             <i class="bi bi-whatsapp"> 087854712611 </i>
             <a href="https://www.instagram.com/anggara.ptra/" target="_blank"><i class="bi bi-instagram"> anggara.ptra </i></a>
             <a href="https://www.facebook.com/ikadekanggaraputra.ikadekanggaraputra/" target="_blank"><i class="bi bi-facebook">  AnggaraPutra </i></a>
-            <a href="http://localhost/sepintasgame/" target="_blank"><img src="img/logo sepintas.png" width="18" height="18" class="img-fluid"> Sepintas Game</a>
           </div>
         </div>
         <div class="col-md-4">

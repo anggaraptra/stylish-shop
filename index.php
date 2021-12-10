@@ -80,7 +80,7 @@ if ( isset($_POST["submit-cari"]) ) {
             </li>
           </ul>
           <form class="cari d-flex" action="" method="post">
-            <input class="form-control me-1" type="search" name="keyword" placeholder="Cari Produk..." aria-label="Search" size="30" autofocus required/>
+            <input class="form-control me-1" type="search" name="keyword" placeholder="Cari Produk..." aria-label="Search" size="30" autocomplete="off" autofocus required/>
             <button class="btn btn-outline-light" type="submit" name="submit-cari"><i class="bi bi-search"></i></button>
           </form>
           <div class="tombol">
@@ -240,7 +240,6 @@ if ( isset($_POST["submit-cari"]) ) {
             <i class="bi bi-whatsapp"> 087854712611 </i>
             <a href="https://www.instagram.com/anggara.ptra/" target="_blank"><i class="bi bi-instagram"> anggara.ptra </i></a>
             <a href="https://www.facebook.com/ikadekanggaraputra.ikadekanggaraputra/" target="_blank"><i class="bi bi-facebook">  AnggaraPutra </i></a>
-            <a href="http://localhost/sepintasgame/" target="_blank"><img src="img/logo sepintas.png" width="18" height="18" class="img-fluid"> Sepintas Game</a>
           </div>
         </div>
         <div class="col-md-4">

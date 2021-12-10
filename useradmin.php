@@ -8,7 +8,7 @@ if ( !isset($_SESSION["login"]) ) {
 
 require 'functions/functions.php';
 
-$user = query("SELECT * FROM user");
+$user = query("SELECT * FROM user LIMIT 10");
 
 $pesanan = query("SELECT * FROM pesanan");
 
@@ -136,7 +136,7 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
             <tr>
               <td><label for="nama-produk" class="form-label">Nama Produk</label></td>
               <td></td>
-              <td><input type="text" name="nama" id="nama-produk" class="form-control" required></td>
+              <td><input type="text" name="nama" id="nama-produk" class="form-control" autocomplete="off" required></td>
             </tr>
             <tr>
               <td><label for="stok-produk" class="form-label">Stok Produk</label></td>
@@ -151,7 +151,7 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
             <tr>
               <td><label for="deskripsi-produk" class="form-label">Deskripsi Produk</label></td>
               <td></td>
-              <td><textarea placeholder="Deskripsi produk" rows="2" id="deskripsi-produk" class="form-control" name="deskripsi" required></textarea></td>
+              <td><textarea placeholder="Deskripsi produk" rows="2" id="deskripsi-produk" class="form-control" name="deskripsi"  autocomplete="off" required></textarea></td>
             </tr>
             <tr>
               <td><label for="gambar-produk" class="form-label">Gambar Produk</label></td>
@@ -288,7 +288,6 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
           <i class="bi bi-whatsapp"> 087854712611 </i>
           <a href="https://www.instagram.com/anggara.ptra/" target="_blank"><i class="bi bi-instagram"> anggara.ptra </i></a>
           <a href="https://www.facebook.com/ikadekanggaraputra.ikadekanggaraputra/" target="_blank"><i class="bi bi-facebook">  AnggaraPutra </i></a>
-          <a href="http://localhost/sepintasgame/" target="_blank"><img src="img/logo sepintas.png" width="18" height="18" class="img-fluid"> Sepintas Game</a>
         </div>
       </div>
       <div class="col-md-4">
