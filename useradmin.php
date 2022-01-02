@@ -40,7 +40,7 @@ $dataAwal = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
 $pesanan = query("SELECT * FROM pesanan ORDER BY id ASC LIMIT $dataAwal, $jumlahDataPerHalaman");
 
 // pagination halaman produk
-$jumlah_data_per_halaman = 4; 
+$jumlah_data_per_halaman = 12; 
 $jumlah_data = count(query("SELECT * FROM produk"));
 $jumlah_halaman = ceil($jumlah_data / $jumlah_data_per_halaman);
 $halaman_aktif = ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;  
@@ -236,7 +236,7 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
           <div class="card-body">
             <h5 class="card-title fw-bold"><?= $row["nama"]; ?></h5>
             <p class="card-text"><?= $row["deskripsi"]; ?></p>
-            <p class="card-text fw-bold">RP. <?= $row["harga"]; ?></p>
+            <p class="card-text fw-bold"><?= rp($row["harga"]); ?></p>
             <a href="detail.php?id=<?= $row["id"]; ?>" class="btn btn-warning">Detail</a>
             <a href="edit.php?id=<?= $row["id"]; ?>" class="btn btn-secondary">Edit</a>
             <a href="functions/hapus-produk.php?id=<?= $row["id"]; ?>" class="btn btn-danger mt-1 del-produk">Hapus</a>
@@ -297,7 +297,7 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
     </div>
     </footer>
     <div class="copyright text-center text-white bg-primary p-3">
-      <p>Developed by Anggara | Copyright @2021</p>
+      <p>Developed by AnggaraPutra | &copy Copyright 2022</p>
     </div>
     <!-- Akhir Footer -->
 

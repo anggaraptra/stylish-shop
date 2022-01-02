@@ -98,7 +98,7 @@ $produk = query("SELECT * FROM produk WHERE id = $id")[0];
               </tr>
               <tr data-aos="fade-up" data-aos-duration="200" data-aos-delay="500">
                 <th>Harga Produk</th>
-                <td>RP. <?= $produk["harga"];?></td>
+                <td><?= rp($produk["harga"]);?></td>
               </tr>
             </table>
         </div>
@@ -134,7 +134,7 @@ $produk = query("SELECT * FROM produk WHERE id = $id")[0];
       </div>
     </footer>
     <div class="copyright text-center text-white bg-primary p-3">
-      <p>Developed by Anggara | Copyright @2021</p>
+      <p>Developed by AnggaraPutra | &copy Copyright 2022</p>
     </div>
     <!-- Akhir Footer -->
 

@@ -70,13 +70,13 @@ if ( isset($_POST["submit-cari"]) ) {
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#beranda">Beranda</a>
+              <a class="nav-link beranda active" aria-current="page" href="#beranda">Beranda</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#produk">Produk</a>
+              <a class="nav-link produk" aria-current="page" href="#produk">Produk</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="" data-bs-target="#kontak" data-bs-toggle="modal">Kontak</a>
+              <a class="nav-link kontak" aria-current="page" href="" data-bs-target="#kontak" data-bs-toggle="modal">Kontak</a>
             </li>
           </ul>
           <form class="cari d-flex" action="" method="post">
@@ -146,7 +146,7 @@ if ( isset($_POST["submit-cari"]) ) {
           <div class="card-body">
             <h5 class="card-title fw-bold"><?= $row["nama"]; ?></h5>
             <p class="card-text"><?= $row["deskripsi"]; ?></p>
-            <p class="card-text fw-bold">RP. <?= $row["harga"]; ?></p>
+            <p class="card-text fw-bold"><?= rp($row["harga"]); ?></p>
             <a href="detail.php?id=<?= $row["id"]; ?>" class="btn btn-warning">Detail</a>
             <a href="pesan.php?id=<?= $row["id"]; ?>" class="btn btn-success">Beli</a>
           </div>
@@ -249,7 +249,7 @@ if ( isset($_POST["submit-cari"]) ) {
       </div>
     </footer>
     <div class="copyright text-center text-white bg-primary p-3">
-      <p>Developed by Anggara | Copyright @2021</p>
+      <p>Developed by AnggaraPutra | &copy Copyright 2022</p>
     </div>
     <!-- Akhir Footer -->
 

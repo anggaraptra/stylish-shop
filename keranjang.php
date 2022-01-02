@@ -116,7 +116,7 @@ require 'functions/functions.php';
       </div>
     </footer>
     <div class="copyright text-center text-white bg-primary p-3">
-      <p>Developed by Anggara | Copyright @2021</p>
+      <p>Developed by AnggaraPutra | &copy Copyright 2022</p>
     </div>
     <!-- Akhir Footer -->
 

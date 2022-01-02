@@ -99,7 +99,7 @@ if ( isset($_POST["submit-pesanan"]) ) {
             <div class="mb-3">
                 <label for="harga-produk" class="form-label">Harga Produk</label>
                 <input type="text" class="form-control" id="harga-produk"
-                name="harga" value="RP. <?= $produk["harga"]; ?>" readonly>
+                name="harga" value="<?= rp($produk["harga"]); ?>" readonly>
             </div>
             <div class="mb-3">
                 <label for="" class="form-label d-flex">Gambar Produk</label>
@@ -107,7 +107,7 @@ if ( isset($_POST["submit-pesanan"]) ) {
             </div>
         </div>
 
-        <!-- Bagian User -->
+        <!-- Bagian Pembeli -->
         <div class="col-md-4">
           <div class="mb-3">
             <label for="nama-anda" class="form-label">Nama Pemesan</label>
@@ -127,7 +127,7 @@ if ( isset($_POST["submit-pesanan"]) ) {
           </div>
           <div class="mb-3">
             <label for="harga-produk" class="form-label">Total Pesanan</label>
-            <input type="text" class="form-control" id="harga-produk" name="total_pesanan" value="RP. <?= $produk["harga"]; ?>" readonly>
+            <input type="text" class="form-control" id="harga-produk" name="total_pesanan" value="<?= rp($produk["harga"]); ?>" readonly>
           </div>
           <button type="submit" name="submit-pesanan" class="btn btn-success mt-1">Buat Pesanan</button>
         </div>
@@ -164,7 +164,7 @@ if ( isset($_POST["submit-pesanan"]) ) {
       </div>
     </footer>
     <div class="copyright text-center text-white bg-primary p-3">
-      <p>Developed by Anggara | Copyright @2021</p>
+      <p>Developed by AnggaraPutra | &copy Copyright 2022</p>
     </div>
     <!-- Akhir Footer -->
 

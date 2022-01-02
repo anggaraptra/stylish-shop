@@ -27,7 +27,7 @@ function tambah($data) {
         return false;
     }
 
-    $query = "INSERT INTO Produk
+    $query = "INSERT INTO produk
     VALUES
     ('', '$nama', 
     '$stok', 
@@ -181,6 +181,11 @@ function pesanan($data) {
     mysqli_query($koneksi, $query);
 
     return mysqli_affected_rows($koneksi);
+}
+
+function rp($angka) {
+    $hasil = "Rp " . number_format($angka,2,',','.');
+    return $hasil;
 }
 
 // Fungsi menghapus produk dari database
