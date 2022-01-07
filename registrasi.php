@@ -1,16 +1,16 @@
 <?php
 session_start();
 
-if ( !isset($_SESSION["login"]) ) {
-  header("Location: login.php");
-  exit;
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
 }
 
 require 'functions/functions.php';
 
-if ( isset($_POST["registrasi"]) ) {
+if (isset($_POST["registrasi"])) {
 
-    if ( registrasi($_POST) > 0 ) {
+    if (registrasi($_POST) > 0) {
         echo "<script>
             alert('Admin baru berhasil ditambah!');
             document.location.href = 'login.php';
@@ -22,6 +22,7 @@ if ( isset($_POST["registrasi"]) ) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,7 +51,7 @@ if ( isset($_POST["registrasi"]) ) {
     <link rel="icon" type="image/png" href="assets/ico/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="assets/ico/favicon-16x16.png" sizes="16x16" />
     <link rel="icon" type="image/png" href="assets/ico/favicon-128.png" sizes="128x128" />
-    <meta name="application-name" content="&nbsp;"/>
+    <meta name="application-name" content="&nbsp;" />
     <meta name="msapplication-TileColor" content="#FFFFFF" />
     <meta name="msapplication-TileImage" content="mstile-144x144.png" />
     <meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
@@ -59,6 +60,7 @@ if ( isset($_POST["registrasi"]) ) {
     <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
     <title>Registrasi</title>
 </head>
+
 <body>
     <div class="container">
         <div class="cover">
@@ -73,29 +75,30 @@ if ( isset($_POST["registrasi"]) ) {
         <form action="" method="post">
             <div class="form-content">
                 <div class="registrasi-form">
-                    <div class="title text-center"><h1><strong>Registrasi</strong></h1>
-                    <div class="input-boxes">
-                        <div class="input-box">
-                            <i class="bi bi-person-fill"></i>
-                            <input type="text" name="username" placeholder="Masukan username anda" required>
+                    <div class="title text-center">
+                        <h1><strong>Registrasi</strong></h1>
+                        <div class="input-boxes">
+                            <div class="input-box">
+                                <i class="bi bi-person-fill"></i>
+                                <input type="text" name="username" placeholder="Masukan username anda" required>
+                            </div>
+                            <div class="input-box">
+                                <i class="bi bi-envelope-fill"></i>
+                                <input type="email" name="email" placeholder="Masukan email anda" required>
+                            </div>
+                            <div class="input-box">
+                                <i class="bi bi-lock-fill"></i>
+                                <input type="password" name="password" placeholder="Masukan password anda" required>
+                            </div>
+                            <div class="input-box">
+                                <i class="bi bi-lock-fill"></i>
+                                <input type="password" name="password2" placeholder="Konfirmasi password anda" required>
+                            </div>
+                            <div class="button input-box">
+                                <button type="submit" name="registrasi">Register</button>
+                            </div>
+                            <div class="register-text text">Sudah punya akun? Silahkan Login di <a href="index.php">Stylish Shop!</a> </div>
                         </div>
-                        <div class="input-box">
-                            <i class="bi bi-envelope-fill"></i>
-                            <input type="email" name="email" placeholder="Masukan email anda" required>
-                        </div>
-                        <div class="input-box">
-                            <i class="bi bi-lock-fill"></i>
-                            <input type="password" name="password" placeholder="Masukan password anda" required>
-                        </div>
-                        <div class="input-box">
-                            <i class="bi bi-lock-fill"></i>
-                            <input type="password" name="password2" placeholder="Konfirmasi password anda" required>
-                        </div>
-                        <div class="button input-box">
-                            <button type="submit" name="registrasi">Register</button>
-                        </div>
-                        <div class="register-text text">Sudah punya akun? Silahkan Login di <a href="index.php">Stylish Shop!</a> </div>
-                    </div>
                     </div>
                 </div>
             </div>
@@ -105,4 +108,5 @@ if ( isset($_POST["registrasi"]) ) {
     <!-- JavaScript Bootstrap -->
     <script src="assets/bootstrap-5.1.2-dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

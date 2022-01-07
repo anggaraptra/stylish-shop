@@ -1,20 +1,22 @@
-<?php 
+<?php
 // koneksi ke database
 $koneksi = mysqli_connect("localhost", "root", "", "stylishshop");
 
 // fungsi query atau mengambil data dari tabel database produk
-function query($query) {
+function query($query)
+{
     global $koneksi;
     $result = mysqli_query($koneksi, $query);
     $rows = [];
-    while( $row = mysqli_fetch_assoc($result) ) {
+    while ($row = mysqli_fetch_assoc($result)) {
         $rows[] = $row;
     }
     return $rows;
 }
 
 // fungsi untuk menambah data ke database
-function tambah($data) {
+function tambah($data)
+{
     global $koneksi;
     $nama = htmlspecialchars($data["nama"]);
     $stok = htmlspecialchars($data["stok"]);
@@ -23,7 +25,7 @@ function tambah($data) {
 
     // upload Gambar
     $gambar = upload();
-    if ( !$gambar ) {
+    if (!$gambar) {
         return false;
     }
 
@@ -41,14 +43,15 @@ function tambah($data) {
 }
 
 // Fungsi upload file gambar
-function upload() {
+function upload()
+{
     $nama_file = $_FILES['gambar']['name'];
     $ukuran_file = $_FILES['gambar']['size'];
     $error = $_FILES['gambar']['error'];
     $tmp_name = $_FILES['gambar']['tmp_name'];
 
     // cek apakah tidak ada gambar yang di upload
-    if ( $error === 4 ) {
+    if ($error === 4) {
         echo "<script>
             alert('Pilih gambar!');
         </script>";
@@ -59,7 +62,7 @@ function upload() {
     $ekstensi_gambar_valid = ['jpg', 'jpeg', 'png', 'jfif'];
     $ekstensi_gambar = explode('.', $nama_file);
     $ekstensi_gambar = strtolower(end($ekstensi_gambar));
-    if ( !in_array($ekstensi_gambar, $ekstensi_gambar_valid) ) {
+    if (!in_array($ekstensi_gambar, $ekstensi_gambar_valid)) {
         echo "<script>
             alert('Yang anda upload bukan gambar!');
         </script>";
@@ -67,7 +70,7 @@ function upload() {
     }
 
     // cek jika ukuran gambar terlalu besar
-    if ( $ukuran_file > 2000000 ) {
+    if ($ukuran_file > 2000000) {
         echo "<script>
             alert('Ukuran gambar terlalu besar!');
         </script>";
@@ -85,8 +88,9 @@ function upload() {
 }
 
 // Fungsi untuk mengubah data dalam database
-function edit($data) {
-    global $koneksi; 
+function edit($data)
+{
+    global $koneksi;
 
     $id = $data["id"];
     $nama = htmlspecialchars($data["nama"]);
@@ -96,7 +100,7 @@ function edit($data) {
     $gambar_lama = htmlspecialchars($data["gambar-lama"]);
 
     // cek apakah user pilih gambar baru atau tidak
-    if ( $_FILES['gambar']['error'] === 4 ) {
+    if ($_FILES['gambar']['error'] === 4) {
         $gambar = $gambar_lama;
     } else {
         $gambar = upload();
@@ -113,11 +117,11 @@ function edit($data) {
     mysqli_query($koneksi, $query);
 
     return mysqli_affected_rows($koneksi);
-
 }
 
 // Fungsi untuk mencari produk
-function cari($data) {
+function cari($data)
+{
     $query = "SELECT * FROM produk 
                 WHERE
             nama LIKE '%$data%' OR
@@ -127,7 +131,8 @@ function cari($data) {
 }
 
 // Fungsi untuk menambah user atau registrasi
-function registrasi($data) {
+function registrasi($data)
+{
     global $koneksi;
 
     $username = strtolower(stripslashes($data["username"]));
@@ -138,19 +143,19 @@ function registrasi($data) {
     // cek username sudah ada atau belum
     $result = mysqli_query($koneksi, "SELECT username FROM user WHERE username = '$username'");
 
-    if ( mysqli_fetch_assoc($result) ) {
+    if (mysqli_fetch_assoc($result)) {
         echo "<script>
             alert('Username sudah tersedia!');
         </script>";
-    return false;
+        return false;
     }
 
     // cek konfirmasi password
-    if ( $password !== $password2 ) {
+    if ($password !== $password2) {
         echo "<script>
             alert('Konfirmasi password tidak sesuai!');
         </script>";
-    return false;
+        return false;
     }
 
     // enkripsi password
@@ -163,7 +168,8 @@ function registrasi($data) {
 }
 
 // Fungsi untuk memproses pesanan
-function pesanan($data) {
+function pesanan($data)
+{
     global $koneksi;
 
     $nama = $data['nama_produk'];
@@ -183,8 +189,9 @@ function pesanan($data) {
     return mysqli_affected_rows($koneksi);
 }
 
-function rp($angka) {
-    $hasil = "Rp " . number_format($angka,2,',','.');
+function rp($angka)
+{
+    $hasil = "Rp " . number_format($angka, 2, ',', '.');
     return $hasil;
 }
 
@@ -203,4 +210,3 @@ function rp($angka) {
 
 //     return mysqli_affected_rows($koneksi);
 // }
-?>

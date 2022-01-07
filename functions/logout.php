@@ -1,4 +1,4 @@
-<?php 
+<?php
 // hapus session
 session_start();
 $_SESSION = [];
@@ -11,4 +11,3 @@ setcookie('key', '', time() - 3600, '/', 'localhost', 1);
 
 header("Location: ../login.php");
 exit;
-?>
