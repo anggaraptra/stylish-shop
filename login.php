@@ -8,7 +8,7 @@ if (isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
     $key = $_COOKIE['key'];
 
     // ambil username berdasarkan id
-    $result = mysqli_query($koneksi, "SELECT username FROM user WHERE id = $id");
+    $result = mysqli_query($koneksi, "SELECT username FROM user_admin WHERE id = $id");
     $row = mysqli_fetch_assoc($result);
 
     // cek cookie dan username
@@ -27,7 +27,7 @@ if (isset($_POST['login'])) {
 
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $result = mysqli_query($koneksi, "SELECT * FROM user WHERE username = '$username'");
+    $result = mysqli_query($koneksi, "SELECT * FROM user_admin WHERE username = '$username'");
 
     // cek Username
     if (mysqli_num_rows($result) === 1) {

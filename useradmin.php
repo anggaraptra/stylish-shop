@@ -8,7 +8,7 @@ if (!isset($_SESSION["login"])) {
 
 require 'functions/functions.php';
 
-$user = query("SELECT * FROM user LIMIT 10");
+$user = query("SELECT * FROM user_admin LIMIT 10");
 
 $pesanan = query("SELECT * FROM pesanan");
 
