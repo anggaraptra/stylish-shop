@@ -1,1 +1,1 @@
-# stylish-shop
+# STYLISH SHOP
