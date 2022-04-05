@@ -149,7 +149,7 @@ if (isset($_POST["submit-edit"])) {
     <div class="row mt-3">
       <div class="col-md-4">
         <h6><strong>LAYANAN</strong></h6>
-        <ul>
+        <ul class="list-unstyled">
           <li>Pusat Bantuan</li>
           <li>Cara Pembelian</li>
           <li>Pengembalian Jika Tidak Sesuai</li>
@@ -170,7 +170,7 @@ if (isset($_POST["submit-edit"])) {
     </div>
   </footer>
   <div class="copyright text-center text-white bg-primary p-3">
-    <p>Developed by AnggaraPutra | &copy Copyright 2022</p>
+    <p>&copy Copyright Stylish Shop, Developed by Anggara Putra - All rights reserved</p>
   </div>
   <!-- Akhir Footer -->
 

@@ -78,7 +78,7 @@ if (isset($_POST["submit-cari"])) {
             <a class="nav-link produk" aria-current="page" href="#produk">Produk</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link kontak" aria-current="page" href="" data-bs-target="#kontak" data-bs-toggle="modal">Kontak</a>
+            <a class="nav-link kontak" aria-current="page" data-bs-target="#kontak" data-bs-toggle="modal">Kontak</a>
           </li>
         </ul>
         <form class="cari d-flex" action="" method="post">
@@ -149,8 +149,7 @@ if (isset($_POST["submit-cari"])) {
           <img src="img-produk/<?= $row["gambar"]; ?>" class="img-fluid card-img-top" />
           <div class="card-body">
             <h5 class="card-title fw-bold"><?= $row["nama"]; ?></h5>
-            <p class="card-text"><?= $row["deskripsi"]; ?></p>
-            <p class="card-text fw-bold"><?= rp($row["harga"]); ?></p>
+            <p class="card-text mb-3"><?= rp($row["harga"]); ?></p>
             <a href="detail.php?id=<?= $row["id"]; ?>" class="btn btn-warning">Detail</a>
             <a href="pesan.php?id=<?= $row["id"]; ?>" class="btn btn-success">Beli</a>
           </div>
@@ -232,7 +231,7 @@ if (isset($_POST["submit-cari"])) {
     <div class="row mt-3">
       <div class="col-md-4">
         <h6><strong>LAYANAN</strong></h6>
-        <ul>
+        <ul class="list-unstyled">
           <li>Pusat Bantuan</li>
           <li>Cara Pembelian</li>
           <li>Pengembalian Jika Tidak Sesuai</li>
@@ -253,7 +252,7 @@ if (isset($_POST["submit-cari"])) {
     </div>
   </footer>
   <div class="copyright text-center text-white bg-primary p-3">
-    <p>Developed by AnggaraPutra | &copy Copyright 2022</p>
+    <p>&copy Copyright Stylish Shop, Developed by Anggara Putra - All rights reserved</p>
   </div>
   <!-- Akhir Footer -->
 

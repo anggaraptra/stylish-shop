@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Praise&display=swap");
 
 * {
-  font-family: "Mulish", sans-serif;
+  font-family: "Poppins";
 }
 
 .container-fluid .navbar-brand {

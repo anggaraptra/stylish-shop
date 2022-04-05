@@ -239,8 +239,7 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
           <img src="img-produk/<?= $row["gambar"]; ?>" class="img-fluid card-img-top" alt="" />
           <div class="card-body">
             <h5 class="card-title fw-bold"><?= $row["nama"]; ?></h5>
-            <p class="card-text"><?= $row["deskripsi"]; ?></p>
-            <p class="card-text fw-bold"><?= rp($row["harga"]); ?></p>
+            <p class="card-text mb-3"><?= rp($row["harga"]); ?></p>
             <a href="detail.php?id=<?= $row["id"]; ?>" class="btn btn-warning">Detail</a>
             <a href="edit.php?id=<?= $row["id"]; ?>" class="btn btn-secondary">Edit</a>
             <a href="functions/hapus-produk.php?id=<?= $row["id"]; ?>" class="btn btn-danger mt-1 del-produk">Hapus</a>
@@ -280,7 +279,7 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
     <div class="row mt-3">
       <div class="col-md-4">
         <h6><strong>LAYANAN</strong></h6>
-        <ul>
+        <ul class="list-unstyled">
           <li>Pusat Bantuan</li>
           <li>Cara Pembelian</li>
           <li>Pengembalian Jika Tidak Sesuai</li>
@@ -301,7 +300,7 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
     </div>
   </footer>
   <div class="copyright text-center text-white bg-primary p-3">
-    <p>Developed by AnggaraPutra | &copy Copyright 2022</p>
+    <p>&copy Copyright Stylish Shop, Developed by Anggara Putra - All rights reserved</p>
   </div>
   <!-- Akhir Footer -->
 

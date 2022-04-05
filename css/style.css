@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Praise&display=swap");
 
 * {
   padding: 0;
   margin: 0;
-  font-family: "Mulish";
+  font-family: "Poppins";
 }
 
 .container-fluid .navbar-brand {
@@ -13,6 +13,10 @@
 
 .container-fluid .navbar-nav .nav-item .nav-link:hover {
   color: #ffff;
+}
+
+.nav-item .kontak {
+  cursor: pointer;
 }
 
 .carousel {
@@ -48,7 +52,6 @@
   padding: 70px;
   margin-bottom: -64px;
   text-align: center;
-  font-weight: bold;
 }
 
 #produk .produk {
