@@ -127,7 +127,7 @@ if (isset($_POST["submit-edit"])) {
         <tr>
           <td><label class="form-label">Gambar Lama</label></td>
           <td></td>
-          <td><img src="img-produk/<?= $produk["gambar"]; ?>" width="100" height="100" class="img-fluid mb-1 mt-1"></td>
+          <td><img src="img-produk/<?= $produk["gambar"]; ?>" width="100" height="100" class="img-fluid mb-1 mt-1 rounded gambar-lama"></td>
         </tr>
         <tr>
           <td><label for="gambar" class="form-label">Gambar Baru</label></td>
@@ -170,7 +170,7 @@ if (isset($_POST["submit-edit"])) {
     </div>
   </footer>
   <div class="copyright text-center text-white bg-primary p-3">
-    <p>&copy Copyright Stylish Shop, Developed by Anggara Putra - All rights reserved</p>
+    <p>&copy Copyright Stylish Shop - All rights reserved</p>
   </div>
   <!-- Akhir Footer -->
 

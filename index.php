@@ -146,7 +146,7 @@ if (isset($_POST["submit-cari"])) {
     <div class="produk container-fluid row text-center mx-auto p-5">
       <?php foreach ($produk as $row) : ?>
         <div class="container-fluid card mb-4" style="width: 16rem">
-          <img src="img-produk/<?= $row["gambar"]; ?>" class="img-fluid card-img-top" />
+          <img src="img-produk/<?= $row["gambar"]; ?>" class="img-fluid card-img-top rounded" />
           <div class="card-body">
             <h5 class="card-title fw-bold"><?= $row["nama"]; ?></h5>
             <p class="card-text mb-3"><?= rp($row["harga"]); ?></p>
@@ -252,7 +252,7 @@ if (isset($_POST["submit-cari"])) {
     </div>
   </footer>
   <div class="copyright text-center text-white bg-primary p-3">
-    <p>&copy Copyright Stylish Shop, Developed by Anggara Putra - All rights reserved</p>
+    <p>&copy Copyright Stylish Shop - All rights reserved</p>
   </div>
   <!-- Akhir Footer -->
 

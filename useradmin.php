@@ -236,7 +236,7 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
       <h2>PRODUK</h2>
       <?php foreach ($produk as $row) : ?>
         <div class="container-fluid card mb-4" style="width: 16rem">
-          <img src="img-produk/<?= $row["gambar"]; ?>" class="img-fluid card-img-top" alt="" />
+          <img src="img-produk/<?= $row["gambar"]; ?>" class="img-fluid card-img-top rounded" alt="" />
           <div class="card-body">
             <h5 class="card-title fw-bold"><?= $row["nama"]; ?></h5>
             <p class="card-text mb-3"><?= rp($row["harga"]); ?></p>
@@ -300,7 +300,7 @@ $produk = query("SELECT * FROM produk ORDER BY id DESC LIMIT $data_awal, $jumlah
     </div>
   </footer>
   <div class="copyright text-center text-white bg-primary p-3">
-    <p>&copy Copyright Stylish Shop, Developed by Anggara Putra - All rights reserved</p>
+    <p>&copy Copyright Stylish Shop - All rights reserved</p>
   </div>
   <!-- Akhir Footer -->
 

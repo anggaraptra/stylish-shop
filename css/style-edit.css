@@ -15,6 +15,10 @@ body {
   justify-content: center;
 }
 
+.container-fluid form table .gambar-lama {
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
 .collapse ul {
   margin: 0 auto;
 }

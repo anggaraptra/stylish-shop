@@ -83,7 +83,7 @@ $produk = query("SELECT * FROM produk WHERE id = $id")[0];
       <div class="col-md-2"></div>
       <!-- Gambar Produk -->
       <div class="col-md-4">
-        <img src="img-produk/<?= $produk["gambar"]; ?>" width="300" height="300" class="img-fluid" alt="">
+        <img src="img-produk/<?= $produk["gambar"]; ?>" width="300" height="300" class="img-fluid rounded gambar-produk" alt="">
       </div>
       <!-- Keterangan Produk -->
       <div class="col-md-5 mt-1">
@@ -138,7 +138,7 @@ $produk = query("SELECT * FROM produk WHERE id = $id")[0];
     </div>
   </footer>
   <div class="copyright text-center text-white bg-primary p-3">
-    <p>&copy Copyright Stylish Shop, Developed by Anggara Putra - All rights reserved</p>
+    <p>&copy Copyright Stylish Shop - All rights reserved</p>
   </div>
   <!-- Akhir Footer -->
 

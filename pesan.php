@@ -105,7 +105,7 @@ if (isset($_POST["submit-pesanan"])) {
           </div>
           <div class="mb-3">
             <label for="" class="form-label d-flex">Gambar Produk</label>
-            <img src="img-produk/<?= $produk["gambar"]; ?>" width="300" height="300" class="img-fluid mt-3" alt="">
+            <img src="img-produk/<?= $produk["gambar"]; ?>" width="300" height="300" class="img-fluid mt-3 rounded gambar-produk" alt="">
           </div>
         </div>
 
@@ -166,7 +166,7 @@ if (isset($_POST["submit-pesanan"])) {
     </div>
   </footer>
   <div class="copyright text-center text-white bg-primary p-3">
-    <p>&copy Copyright Stylish Shop, Developed by Anggara Putra - All rights reserved</p>
+    <p>&copy Copyright Stylish Shop - All rights reserved</p>
   </div>
   <!-- Akhir Footer -->
 
